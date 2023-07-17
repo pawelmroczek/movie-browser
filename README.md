@@ -1,6 +1,10 @@
-# Getting Started with Create React App
+# Movie Browser
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Demo
+
+[https://pawelmroczek.github.io/movie-browser/](https://pawelmroczek.github.io/movie-browser/)
 
 ## Available Scripts
 

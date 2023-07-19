@@ -1,12 +1,12 @@
 import React from "react";
-import { StyledTile, Image, Tags, Rating, Content, Title, Year, Tag, Rate, Votes, StarImage } from "./styled";
+import { StyledTile, Image, Tags, Rating, TileContent, Title, Year, Tag, Rate, Votes, StarImage } from "./styled";
 import poster from "../images/poster.png";
 import star from "../images/Vector.svg";
 
 export const Tile = () => (
     <StyledTile>
         <Image src={poster} alt=""></Image>
-        <Content>
+        <TileContent>
             <Title>Mulan</Title>
             <Year>2020</Year>
             <Tags>
@@ -14,7 +14,7 @@ export const Tile = () => (
                 <Tag>Adventure</Tag>
                 <Tag>Drama</Tag>
             </Tags>
-        </Content>
+        </TileContent>
         <Rating>
             <StarImage src= {star} alt=""></StarImage>
             <Rate>7,8</Rate>

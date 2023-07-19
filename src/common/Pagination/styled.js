@@ -6,10 +6,12 @@ export const StyledPagination = styled.div`
     padding-top: 40px;
     display: flex;
     justify-content: center;
+    padding: 40px 0px 103px 0px;
 `
 export const StyledUl = styled(Tags)`
     display: flex;
     align-items: center;
+    padding: 40px;
 `
 
 export const GrayLi = styled(Tag)`

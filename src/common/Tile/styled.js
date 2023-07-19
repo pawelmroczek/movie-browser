@@ -8,6 +8,11 @@ export const StyledTile = styled.article`
     border-radius: 5px;
     display: grid;
     grid-template-columns: auto;
+
+    @media (max-width: 320px) {
+        width: 288px;
+        height: 201px;
+    }
 `;
 
 export const Image = styled.img`
@@ -15,27 +20,47 @@ export const Image = styled.img`
     height: 434px;
     border-radius: 5px;
     padding: 16px;
+
+    @media (max-width: 320px) {
+        width: 114px;
+        height: 169px;
+    }
 `;
 
-export const Content = styled.div`
+export const TileContent = styled.div`
     padding: 0px 16px 0px 16px;
-    width: 292px;
+    width: 100%;
     height: 105px;
     display: grid;
     grid-template-rows: repeat(3, 1fr);
     grid-row-gap: 8px; 
+
+    @media (max-width: 320px) {
+        width: 126px;
+        height: 149px;
+    }
 `
 
 export const Title = styled.header`
     height: 29px;
     font-size: 22px;
     font-weight: 500;
+
+    @media (max-width: 320px) {
+        height: 42px;
+        font-size: 16px;
+    }
 `
 
 export const Year = styled.div`
     color: ${({theme}) => theme.color.waterloo};
     font-size: 16px;
     font-weight: 400;
+
+    @media (max-width: 320px) {
+        height: 17px;
+        font-size: 13px;
+    }
 `
 export const Tags = styled.ul`
     list-style: none;
@@ -52,6 +77,13 @@ export const Tag = styled.li`
     padding: 8px 16px;
     border-radius: 5px;
     margin: 8px;
+
+    @media (max-width: 320px) {
+        height: 19px;
+        font-size: 10px;
+        padding: 4px 8px;
+        margin: 4px;
+    }
 `
 
 export const Rating = styled.div`
@@ -67,13 +99,26 @@ export const Rating = styled.div`
 export const StarImage = styled.img`
     width: 24px;
     height: 22.87px;
+
+    @media (max-width: 320px) {
+        width: 16px;
+        height: 15.25px;
+    }
 `
 export const Rate = styled.div`
     font-size: 16px;
     font-weight: 600;
     padding: 0px 12px;
+
+    @media (max-width: 320px) {
+        font-size: 13px;
+    }
 `
 export const Votes = styled.div`
     font-size: 16px;
     color: ${({theme}) => theme.color.waterloo};
+
+    @media (max-width: 320px) {
+        font-size: 13px;
+    }
 `

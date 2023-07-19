@@ -5,7 +5,7 @@ import video from "../images/Video.svg"
 export const Navigation = () => (
     <StyledNav>
         <StyledUl>
-        <StyledLi>
+            <StyledLi>
                 <Logo
                     to="/home"
                 >
@@ -16,8 +16,6 @@ export const Navigation = () => (
             <StyledLi>
                 <StyledNavLink
                     to="/movies"
-                    activeClassName="active"
-                    isActive={() => true}
                 >
                     MOVIES
                 </StyledNavLink>
@@ -31,5 +29,4 @@ export const Navigation = () => (
             </StyledLi>
         </StyledUl>
     </StyledNav>
-
 );

@@ -5,7 +5,10 @@ export const theme = {
     mystic: "#E4E6F0",
     waterloo: "#7E839A",
     woodsmoke: "#18181B",
-    darkerGray:"#7E839A",
+    darkerGray: "#7E839A",
     pattensBlue: "#D6E4FF",
+  },
+  media: {
+    phoneMedia: 767,
   },
 };

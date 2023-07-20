@@ -1,27 +1,31 @@
-import { ThemeProvider } from "styled-components";
-import Input from "./common/Navigation/Input";
-import { theme } from "./theme";
-import {
-  HashRouter,
-  Redirect,
-  Route,
-  Switch,
-} from "react-router-dom/cjs/react-router-dom";
+import React from 'react';
+import { ThemeProvider } from 'styled-components';
+import { theme } from './theme';
+import { Container, Content, Title} from './common/Container';
+import { Navigation } from './common/Navigation';
+import { Tile } from './common/Tile';
+import { Pagination } from './common/Pagination';
+import { GlobalStyle } from './GlobalStyle';
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <HashRouter>
-        {/* here is a place for navigation with my input inside of it */}
-        <Input />
-        <Switch>
-          <Route path="/movies">movies</Route>
-          <Route path="/people">people</Route>
-          <Route path="/">
-            <Redirect to="/movies" />
-          </Route>
-        </Switch>
-      </HashRouter>
+      <Navigation />
+      <GlobalStyle />
+      <Container>
+        <Title>Popular movies</Title>
+        <Content>
+          <Tile />
+          <Tile />
+          <Tile />
+          <Tile />
+          <Tile />
+          <Tile />
+          <Tile />
+          <Tile />
+        </Content>
+      </Container>
+      <Pagination />
     </ThemeProvider>
   );
 }

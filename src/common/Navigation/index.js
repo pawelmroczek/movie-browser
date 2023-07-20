@@ -15,16 +15,16 @@ export const Navigation = () => (
   <StyledNav>
     <StyledUl>
       <StyledLi>
-        <Logo to={toPeople}>
+        <Logo>
           <ImageLogo src={video} alt="" />
           Movies Browser
         </Logo>
       </StyledLi>
       <StyledLi>
-        <StyledNavLink to={toMovies}>MOVIES</StyledNavLink>
+        <StyledNavLink to={toMovies()}>MOVIES</StyledNavLink>
       </StyledLi>
       <StyledLi>
-        <StyledNavLink to={toPeople}>PEOPLE</StyledNavLink>
+        <StyledNavLink to={toPeople()}>PEOPLE</StyledNavLink>
       </StyledLi>
     </StyledUl>
     <Input />

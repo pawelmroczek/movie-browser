@@ -15,14 +15,14 @@ function App() {
     <HashRouter>
       <Navigation />
       <Switch>
-        <Route path={toMovies}>
+        <Route path={toMovies()}>
           <Movies />
         </Route>
-        <Route path={toPeople}>
-          <People />
+        <Route path={toPeople()}>
+          <People/>
         </Route>
         <Route path="/">
-          <Redirect to={toMovies} />
+          <Redirect to={toMovies()} />
         </Route>
       </Switch>
     </HashRouter>

@@ -6,25 +6,29 @@ export const StyledInput = styled.input`
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 150%; 
-  color:${({theme})=>theme.color.darkerGray};
-  width:100%;
+  line-height: 150%;
+  color: ${({ theme }) => theme.color.darkerGray};
+  width: 100%;
 
   &:focus {
-    outline:none;
+    outline: none;
   }
 
   &::placeholder {
-    color:${({theme})=>theme.color.darkerGray};
+    color: ${({ theme }) => theme.color.darkerGray};
   }
 `;
 
 export const Container = styled.div`
-  background-color:${({theme})=>theme.color.white};
-  width: 432px;
+  background-color: ${({ theme }) => theme.color.white};
+  width: 22.5%;
   padding: 12px 24px;
   border-radius: 33px;
-  display:flex;
-  align-items:center;
-  gap:16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  @media (max-width: ${({ theme }) => theme.media.phoneMedia}px) {
+    width: 100%;
+  }
 `;

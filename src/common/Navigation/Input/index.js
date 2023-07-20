@@ -1,11 +1,29 @@
 import { Container, StyledInput } from "./styled";
-import search from "../../images/Search.svg"
+import search from "../../images/Search.svg";
+import { useRef } from "react";
+import { useSearchInput } from "./useSearchInput";
 
 const Input = () => {
+  const inputRef = useRef(null);
+
+  const { newInputValue, onInputChange, isMoviesPage } = useSearchInput();
+  const placeholderText = isMoviesPage
+    ? "Search for movies..."
+    : "Search for people...";
+
   return (
-    <Container>
-      <img src={search}></img>
-      <StyledInput placeholder="Search for movies..." />
+    <Container
+      onClick={() => {
+        inputRef.current.focus();
+      }}
+    >
+      <img alt="search-icon" src={search}></img>
+      <StyledInput
+        ref={inputRef}
+        placeholder={placeholderText}
+        value={newInputValue}
+        onChange={({ target }) => onInputChange(target)}
+      />
     </Container>
   );
 };

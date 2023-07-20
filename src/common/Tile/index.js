@@ -14,12 +14,11 @@ export const Tile = () => (
                 <Tag>Adventure</Tag>
                 <Tag>Drama</Tag>
             </Tags>
+            <Rating>
+                <StarImage src={star} alt=""></StarImage>
+                <Rate>7,8</Rate>
+                <Votes>35 votes</Votes>
+            </Rating>
         </TileContent>
-        <Rating>
-            <StarImage src= {star} alt=""></StarImage>
-            <Rate>7,8</Rate>
-            <Votes>35 votes</Votes>
-        </Rating>
     </StyledTile>
-
 );

@@ -95,8 +95,11 @@ export const Tag = styled.li`
 `
 
 export const Rating = styled.div`
+    height: 24px;
     display: flex;
     flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
 `
 export const StarImage = styled.img`
     width: 16px;
@@ -114,6 +117,7 @@ export const Rate = styled.div`
 
     @media (min-width: 768px) {
         font-size: 16px;
+        padding: 0px 12px 0px 12px;
     }
 `
 export const Votes = styled.div`

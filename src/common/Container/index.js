@@ -24,16 +24,14 @@ export const Title = styled.div`
     font-weight: 600;
     font-size: 18px;
     padding: 24px 0px 12px 16px;
-    margin-left: 10%;
+    
 
     @media (min-width: 768px) {
         font-size: 36px;
-        margin-left: 0%;
     }
 
     @media (min-width: 1440px) {
         font-size: 36px;
         align-self: flex-start;
-        margin-left: -50%;
     }
 `

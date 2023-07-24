@@ -5,13 +5,11 @@ export const StyledTile = styled.article`
     box-shadow: 0px 4px 12px 0px #BAC7D580; 
     border-radius: 5px;
     padding: 16px;
-    height: 201px;
     max-width: 288px;
     display: flex;
 
     @media (min-width: 768px) {
         min-width: 324px;
-        height: 650px;
         display: flex;
         flex-direction: column;
         align-items: flex-start;

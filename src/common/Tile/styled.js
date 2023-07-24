@@ -84,6 +84,7 @@ export const Tag = styled.li`
     :last-child{
         margin-right: 0;
         margin-bottom: 0;
+        padding: 8px;
     }
 
     @media (min-width: 768px) {

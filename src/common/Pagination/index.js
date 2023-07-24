@@ -1,40 +1,42 @@
 import React from "react";
-import { BlueLi, GrayLi, ImageGreaterThan, ImageLessThan, PageNumber, Number, StyledPagination, StyledUl } from "./styled";
+import { StyledTags,  ImageGreaterThan, ImageLessThan, Image, PageNumber, StyledPagination, GrayTag, BlueTag, Number } from "./styled";
 import lessThan from "../images/lessThan.svg";
-import greaterThan from "../images/greaterThan.svg"
+import greaterThan from "../images/greaterThan.svg";
+
 
 export const Pagination = () => (
     <StyledPagination>
-        <StyledUl>
-            <GrayLi
-                to="/first"
+        <StyledTags>
+            <GrayTag
+            to="/first"
             >
-                <ImageLessThan src={lessThan} alt="" />
+                <Image src={lessThan} alt="" />
                 First
-            </GrayLi>
-            <GrayLi
-                to="/previous"
+            </GrayTag>
+            <GrayTag
+            to="/previous"
             >
                 <ImageLessThan src={lessThan} alt="" />
                 Previous
-            </GrayLi>
-            <PageNumber>
+            </GrayTag>
+        </StyledTags>
+        <PageNumber>
                 Page <Number>1</Number> of <Number>500</Number>
             </PageNumber>
-            <BlueLi
-                to="/next"
+        <StyledTags>
+        <BlueTag
+            to="/next"
             >
+                <ImageGreaterThan src={greaterThan} alt="" />
                 Next
-                <ImageGreaterThan src={greaterThan} alt="" />
-
-            </BlueLi>
-            <BlueLi
-                to="/last"
+            </BlueTag>
+            <BlueTag
+            to="/last"
             >
-                Last
                 <ImageGreaterThan src={greaterThan} alt="" />
-            </BlueLi>
-        </StyledUl>
+                Last
+            </BlueTag>
+        </StyledTags>
     </StyledPagination>
 
 );

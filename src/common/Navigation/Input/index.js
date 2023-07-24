@@ -1,4 +1,4 @@
-import { Container, StyledInput } from "./styled";
+import { Container, StyledIcon, StyledInput } from "./styled";
 import search from "../../images/Search.svg";
 import { useRef } from "react";
 import { useSearchInput } from "./useSearchInput";
@@ -17,7 +17,7 @@ const Input = () => {
         inputRef.current.focus();
       }}
     >
-      <img alt="search-icon" src={search}></img>
+      <StyledIcon alt="search-icon" src={search}></StyledIcon>
       <StyledInput
         ref={inputRef}
         placeholder={placeholderText}

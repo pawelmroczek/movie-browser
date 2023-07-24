@@ -20,5 +20,6 @@ export const { setData, setStatus } = browserSlice.actions;
 
 export const selectBrowserState = (state) => state.browser;
 export const selectStatus = (state) => selectBrowserState(state).status;
+export const selectData = (state) => selectBrowserState(state).data;
 
 export default browserSlice.reducer;

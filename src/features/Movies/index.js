@@ -47,14 +47,9 @@ const Movies = () => {
                 Search results for "{query}" ({movies ? movies.length : ""})
               </Title>
               <Content>
-                <Tile />
-                <Tile />
-                <Tile />
-                <Tile />
-                <Tile />
-                <Tile />
-                <Tile />
-                <Tile />
+                {movies.map((movie) => (
+                  <Tile key={movie.id} movie={movie} />
+                ))}
               </Content>
             </Container>
             <Pagination />

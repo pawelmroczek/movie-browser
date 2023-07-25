@@ -1,24 +1,27 @@
 import React from "react";
 import { StyledTile, Image, Tags, Rating, TileContent, Title, Year, Tag, Rate, Votes, StarImage } from "./styled";
-import poster from "../images/poster.png";
 import star from "../images/Vector.svg";
 
-export const Tile = () => (
-    <StyledTile>
-        <Image src={poster} alt=""></Image>
-        <TileContent>
-            <Title>Mulan</Title>
-            <Year>2020</Year>
-            <Tags>
-                <Tag>Action</Tag>
-                <Tag>Adventure</Tag>
-                <Tag>Drama</Tag>
-            </Tags>
-            <Rating>
-                <StarImage src={star} alt=""></StarImage>
-                <Rate>7,8</Rate>
-                <Votes>35 votes</Votes>
-            </Rating>
-        </TileContent>
-    </StyledTile>
-);
+export const Tile = ({ movie }) => {
+    const posterUrl = `https://image.tmdb.org/t/p/original${movie.poster_path}`;
+
+    return (
+        movie ? (
+            <StyledTile>
+                <Image src={posterUrl} alt=""></Image>
+                <TileContent>
+                    <Title>{movie.title}</Title>
+                    <Year>{movie.relase_date}</Year>
+                    <Tags>
+                        <Tag></Tag>
+                    </Tags>
+                    <Rating>
+                        <StarImage src={star} alt=""></StarImage>
+                        <Rate>{movie.vote_average}</Rate>
+                        <Votes>{movie.vote_count} votes</Votes>
+                    </Rating>
+                </TileContent>
+            </StyledTile>
+        ) : null
+    )
+};

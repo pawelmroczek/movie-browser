@@ -10,7 +10,7 @@ export const Pagination = () => (
             <GrayTag
             to="/first"
             >
-                <Image src={lessThan} alt="" />
+                <ImageLessThan src={lessThan} alt="" />
                 First
             </GrayTag>
             <GrayTag
@@ -27,14 +27,14 @@ export const Pagination = () => (
         <BlueTag
             to="/next"
             >
-                <ImageGreaterThan src={greaterThan} alt="" />
                 Next
+                <ImageGreaterThan src={greaterThan} alt="" />
             </BlueTag>
             <BlueTag
             to="/last"
             >
-                <ImageGreaterThan src={greaterThan} alt="" />
                 Last
+                <ImageGreaterThan src={greaterThan} alt="" />
             </BlueTag>
         </StyledTags>
     </StyledPagination>

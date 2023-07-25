@@ -7,16 +7,18 @@ export const StyledPagination = styled.div`
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  padding: 32px 0px 31px 0px;
+  padding: 32px 0;
 
   @media (min-width: 768px) {
-    padding: 40px 0px 103px 0px;
+    padding: 40px 0px 103px 0px;  
     }
 `;
 
 export const StyledTags = styled(Tags)`
     margin: initial;
     gap: 12px;
+    display: flex;
+    flex-direction: row;
 `;
 
 
@@ -30,21 +32,31 @@ export const BlueTag = styled(Tag)`
     background: ${({theme}) => theme.color.pattensBlue};
 `;
 
-export const Image= styled.div`
-    color: black;
-`;
 
-export const ImageLessThan = styled.div`
-    padding-right: 8px;
-    color: black;
+export const ImageLessThan = styled.img`
+    width: 5px;
+    height: 8px;
+    margin: 4.5px 8px 4.5px 0;
+
+    @media (min-width: 768px) {
+        width: 7px;
+        height: 11px;  
+    }
 `;
 
 export const ImageGreaterThan = styled.img`
-    width: 7px;
-    height: 11px;
-    padding-left: 8px;
-    color: black;
+    width: 5px;
+    height: 8px;
+    margin: 4.5px 0px 4.5px 8px;
+
+    @media (min-width: 768px) {
+        width: 7px;
+        height: 11px;
+        margin: 0 auto;
+    }
 `;
+
+
 
 export const PageNumber = styled.div`
     font-size: 10px;

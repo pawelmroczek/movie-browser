@@ -81,11 +81,7 @@ export const Tag = styled.li`
     display: flex;
     align-items: center;
 
-    :last-child{
-        margin-right: 0;
-        margin-bottom: 0;
-        padding: 8px;
-    }
+    
 
     @media (min-width: 768px) {
         font-size: 14px;

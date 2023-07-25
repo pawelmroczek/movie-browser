@@ -5,8 +5,10 @@ const browserSlice = createSlice({
   initialState: {
     data: [],
     status: "loading",
+    query: "test",
   },
   reducers: {
+    fetchSearchResult: () => {},
     setData: (state, { payload: data }) => {
       state.data = data;
     },
@@ -16,7 +18,7 @@ const browserSlice = createSlice({
   },
 });
 
-export const { setData, setStatus } = browserSlice.actions;
+export const { setData, setStatus, fetchSearchResult } = browserSlice.actions;
 
 export const selectBrowserState = (state) => state.browser;
 export const selectStatus = (state) => selectBrowserState(state).status;

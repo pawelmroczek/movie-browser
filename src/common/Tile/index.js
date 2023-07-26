@@ -1,14 +1,19 @@
 import React from "react";
-import { StyledTile, Image, Tags, Rating, TileContent, Title, Year, Tag, Rate, Votes, StarImage } from "./styled";
+import { StyledTile, Tags, Rating, TileContent, Title, Year, Tag, Rate, Votes, StarImage, Poster, ImagePoster } from "./styled";
 import star from "../images/Vector.svg";
+import customPoster from "../images/Video.svg"
 
 export const Tile = ({ movie }) => {
-    const posterUrl = `https://image.tmdb.org/t/p/original${movie.poster_path}`;
-
+    const posterUrl = movie.poster_path
+        ? `https://image.tmdb.org/t/p/original${movie.poster_path}`
+        : customPoster;
+        
     return (
         movie ? (
             <StyledTile>
-                <Image src={posterUrl} alt=""></Image>
+                <Poster>
+                    <ImagePoster src={posterUrl} alt="" isCustom={posterUrl === customPoster}></ImagePoster>
+                </Poster>
                 <TileContent>
                     <Title>{movie.title}</Title>
                     <Year>{movie.relase_date}</Year>

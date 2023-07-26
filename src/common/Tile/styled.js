@@ -16,10 +16,15 @@ export const StyledTile = styled.article`
     }
 `;
 
-export const Image = styled.img`
+export const Poster = styled.div`
+    background: ${({ theme }) => theme.color.silver};
     width: 114px;
     height: 169px;
     border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
 
     @media (min-width: 768px) {
         width: 292px;
@@ -27,6 +32,16 @@ export const Image = styled.img`
     }
 `;
 
+export const ImagePoster = styled.img`
+    width: ${({ isCustom }) => isCustom ? '45px' : '114px'};
+    height: ${({ isCustom }) => isCustom ? '45px' : '169px'};
+    border-radius: 5px;
+    
+    @media (min-width: 768px) {
+        width: ${({ isCustom }) => isCustom ? '45px' : '292px'};
+        height: ${({ isCustom }) => isCustom ? '45px' : '434px'};
+    }
+    `
 export const TileContent = styled.div`
     display: flex;
     flex-direction: column;

@@ -50,15 +50,25 @@ export const TileContent = styled.div`
     flex-direction: column;
     margin-left: 16px;
     padding-bottom: 4px;
+    
 
     @media (min-width: 768px) {
         margin: 0;
     }
+
+    & > :nth-child(3) {
+        flex-grow: 1;
+    }
 `
 
-export const Title = styled.header`
+export const TileTitle = styled.header`
     font-size: 16px;
     font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 
     @media (min-width: 768px) {
         font-size: 22px;

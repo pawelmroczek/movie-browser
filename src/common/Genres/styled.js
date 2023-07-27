@@ -6,9 +6,13 @@ export const Tags = styled.ul`
     flex-wrap: wrap;
     align-items: flex-start;
     padding: 0;
+    max-height: 55px;
+    overflow: hidden;
+    
 
     @media (min-width: 768px) {
         font-size: 16px;
+        max-height: 36px;
     }
     
 `
@@ -21,11 +25,7 @@ export const Tag = styled.li`
     margin-bottom: 8px;
     display: flex;
     align-items: center;
-
-    :last-child{
-        margin-right: 0;
-        margin-bottom: 0;
-    }
+    
 
     @media (min-width: 768px) {
         font-size: 14px;

@@ -1,5 +1,5 @@
 import React from "react";
-import { StyledTile, Rating, TileContent, Title, Year, Rate, Votes, StarImage, Poster, ImagePoster } from "./styled";
+import { StyledTile, Rating, TileContent, TileTitle, Year, Rate, Votes, StarImage, Poster, ImagePoster } from "./styled";
 import star from "../images/Vector.svg";
 import customPoster from "../images/Video.svg"
 import { Genres } from "../Genres";
@@ -19,7 +19,7 @@ export const Tile = ({ movie, genres }) => {
                 <ImagePoster src={posterUrl} alt="" $isCustom={posterUrl === customPoster}></ImagePoster>
             </Poster>
             <TileContent>
-                <Title>{movie.title}</Title>
+                <TileTitle>{movie.title}</TileTitle>
                 <Year>{movie.release_date}</Year>
                 
                 <Genres genre_ids={movie.genre_ids} genres={genres} />

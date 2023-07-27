@@ -1,28 +1,28 @@
 import React from "react";
-import { StyledTile, Tags, Rating, TileContent, Title, Year, Tag, Rate, Votes, StarImage, Poster, ImagePoster } from "./styled";
+import { StyledTile, Rating, TileContent, Title, Year, Rate, Votes, StarImage, Poster, ImagePoster } from "./styled";
 import star from "../images/Vector.svg";
 import customPoster from "../images/Video.svg"
+import { Genres } from "../Genres";
 
-export const Tile = ({ movie }) => {
+export const Tile = ({ movie, genres }) => {
     if (!movie) {
-        return null; // return null immediately if movie is undefined
+        return null;
     }
 
     const posterUrl = movie.poster_path
         ? `https://image.tmdb.org/t/p/original${movie.poster_path}`
         : customPoster;
-        
+
     return (
         <StyledTile>
             <Poster>
-                <ImagePoster src={posterUrl} alt="" isCustom={posterUrl === customPoster}></ImagePoster>
+                <ImagePoster src={posterUrl} alt="" $isCustom={posterUrl === customPoster}></ImagePoster>
             </Poster>
             <TileContent>
                 <Title>{movie.title}</Title>
                 <Year>{movie.release_date}</Year>
-                <Tags>
-                    <Tag></Tag>
-                </Tags>
+                
+                <Genres genre_ids={movie.genre_ids} genres={genres} />
                 <Rating>
                     <StarImage src={star} alt=""></StarImage>
                     <Rate>{movie.vote_average}</Rate>

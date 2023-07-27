@@ -8,8 +8,10 @@ import {
   fetchSearchResult,
   selectData,
   selectStatus,
+  selectGenres,
 } from "../browserSlice";
 import { useEffect } from "react";
+import { Tag } from "../../common/Tile/styled";
 
 const Movies = () => {
   const query = useQueryParameter(searchQueryParamNam);
@@ -21,8 +23,9 @@ const Movies = () => {
 
   const data = useSelector(selectData);
   const status = useSelector(selectStatus);
+  const genres = useSelector(selectGenres);
   const movies = data.results;
-  console.log(status);
+  console.log(movies);
   switch (status) {
     case "loading":
       return (
@@ -48,7 +51,11 @@ const Movies = () => {
               </Title>
               <Content>
                 {movies.map((movie) => (
-                  <Tile key={movie.id} movie={movie} />
+                  <Tile
+                    key={movie.id}
+                    movie={movie}
+                    genres={genres}
+                  />
                 ))}
               </Content>
             </Container>
@@ -77,5 +84,4 @@ const Movies = () => {
       }
   }
 };
-
 export default Movies;

@@ -6,10 +6,12 @@ export const StyledTile = styled.article`
     border-radius: 5px;
     padding: 16px;
     max-width: 288px;
+    max-height: 201px;
     display: flex;
 
     @media (min-width: 768px) {
         min-width: 324px;
+        max-height: 650px;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -33,15 +35,16 @@ export const Poster = styled.div`
 `;
 
 export const ImagePoster = styled.img`
-    width: ${({ isCustom }) => isCustom ? '45px' : '114px'};
-    height: ${({ isCustom }) => isCustom ? '45px' : '169px'};
+    width: ${({ $isCustom }) => $isCustom ? '45px' : '114px'};
+    height: ${({ $isCustom }) => $isCustom ? '45px' : '169px'};
     border-radius: 5px;
     
     @media (min-width: 768px) {
-        width: ${({ isCustom }) => isCustom ? '45px' : '292px'};
-        height: ${({ isCustom }) => isCustom ? '45px' : '434px'};
+        width: ${({ $isCustom }) => $isCustom ? '45px' : '292px'};
+        height: ${({ $isCustom }) => $isCustom ? '45px' : '434px'};
     }
-    `
+`;
+
 export const TileContent = styled.div`
     display: flex;
     flex-direction: column;
@@ -77,9 +80,7 @@ export const Tags = styled.ul`
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
-    justify-content: flex-start;
-    padding: 8px 0px;
-    margin: 0 auto;
+    padding: 0;
 
     @media (min-width: 768px) {
         font-size: 16px;

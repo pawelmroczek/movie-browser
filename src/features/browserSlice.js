@@ -5,7 +5,6 @@ const browserSlice = createSlice({
   initialState: {
     data: [],
     status: "loading",
-    query: "test",
     genres: [],
   },
   reducers: {

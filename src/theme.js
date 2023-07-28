@@ -11,5 +11,6 @@ export const theme = {
   },
   media: {
     phoneMedia: 767,
+    mediumDevice:1216,
   },
 };

@@ -5,8 +5,6 @@ export const StyledTile = styled.article`
     box-shadow: 0px 4px 12px 0px #BAC7D580; 
     border-radius: 5px;
     padding: 16px;
-    max-width: 288px;
-    max-height: 201px;
     display: flex;
 
     @media (min-width: 768px) {
@@ -46,43 +44,44 @@ export const ImagePoster = styled.img`
 `;
 
 export const TileContent = styled.div`
-    display: flex;
-    flex-direction: column;
-    margin-left: 16px;
-    padding-bottom: 4px;
+    display: grid;
+    padding-left: 16px;
+    max-height: 100%;
     
 
     @media (min-width: 768px) {
         margin: 0;
     }
-
-    & > :nth-child(3) {
-        flex-grow: 1;
-    }
+    
 `
 
 export const TileTitle = styled.header`
-    font-size: 16px;
     font-weight: 500;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
+    padding: 0px;
+    
 
     @media (min-width: 768px) {
+        -webkit-line-clamp: 2;
         font-size: 22px;
-        padding: 16px 0px 8px;
+        padding-top: 16px;
+        height: auto;
     }
 `
 
 export const Year = styled.div`
     color: ${({theme}) => theme.color.waterloo};
+    position: relative;
     font-size: 13px;
     font-weight: 400;
 
     @media (min-width: 768px) {
         font-size: 16px;
+        top: 8px;
     }
 `
 export const Tags = styled.ul`
@@ -97,33 +96,11 @@ export const Tags = styled.ul`
     }
     
 `
-export const Tag = styled.li`
-    background: ${({theme}) => theme.color.mystic};
-    font-size: 10px;
-    border-radius: 5px;
-    padding: 4px 8px;
-    margin-right: 8px;
-    margin-bottom: 8px;
-    display: flex;
-    align-items: center;
-
-    :last-child{
-        margin-right: 0;
-        margin-bottom: 0;
-    }
-
-    @media (min-width: 768px) {
-        font-size: 14px;
-        padding: 8px 16px;
-    }
-`
-
 export const Rating = styled.div`
-    height: 24px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    align-items: center;
+    
 `
 export const StarImage = styled.img`
     width: 16px;

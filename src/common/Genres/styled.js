@@ -1,34 +1,33 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Tags = styled.ul`
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    padding: 0;
-    max-height: 55px;
-    overflow: hidden;
-    
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	padding: 0;
+	max-height: 55px;
+	overflow: hidden;
+	margin: 8px 0 12px;
 
-    @media (min-width: 768px) {
-        font-size: 16px;
-        max-height: 36px;
-    }
-    
+	@media (min-width: 768px) {
+		font-size: 16px;
+		height: 36px;
+		margin: unset;
+	}
 `
 export const Tag = styled.li`
-    background: ${({theme}) => theme.color.mystic};
-    font-size: 10px;
-    border-radius: 5px;
-    padding: 4px 8px;
-    margin-right: 8px;
-    margin-bottom: 8px;
-    display: flex;
-    align-items: center;
-    
+	background: ${({ theme }) => theme.color.mystic};
+	font-size: 10px;
+	border-radius: 5px;
+	padding: 4px 8px;
+	margin-right: 8px;
+	margin-bottom: 8px;
+	display: flex;
+	align-items: center;
 
-    @media (min-width: 768px) {
-        font-size: 14px;
-        padding: 8px 16px;
-    }
+	@media (min-width: 768px) {
+		font-size: 14px;
+		padding: 8px 16px;
+	}
 `

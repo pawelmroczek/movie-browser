@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Tag, Tags } from "../Tile/styled";
+import { Tag, Tags } from "../Genres/styled";
 
 export const StyledPagination = styled.div`
     padding-top: 40px;

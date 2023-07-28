@@ -25,7 +25,7 @@ export const Tile = ({ movie, genres }) => {
                 <Genres genre_ids={movie.genre_ids} genres={genres} />
                 <Rating>
                     <StarImage src={star} alt=""></StarImage>
-                    <Rate>{movie.vote_average}</Rate>
+                    <Rate>{movie.vote_average === 0 ? 0 : movie.vote_average.toFixed(1)}</Rate>
                     <Votes>{movie.vote_count} votes</Votes>
                 </Rating>
             </TileContent>

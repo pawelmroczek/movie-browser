@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Navigation } from "./common/Navigation";
+import Movies from "./features/Movies";
+import {
+  HashRouter,
+  Redirect,
+  Route,
+  Switch,
+} from "react-router-dom/cjs/react-router-dom";
+import People from "./features/People";
+import { toMovies, toPeople } from "./routes";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <HashRouter>
+      <Navigation />
+      <Switch>
+        <Route path={toMovies()}>
+          <Movies />
+        </Route>
+        <Route path={toPeople()}>
+          <People/>
+        </Route>
+        <Route path="/">
+          <Redirect to={toMovies()} />
+        </Route>
+      </Switch>
+    </HashRouter>
   );
 }
 

@@ -19,7 +19,7 @@ const Movies = () => {
 
   useEffect(() => {
     dispatch(fetchSearchResult(query));
-  }, [query]);
+  }, [query, dispatch]);
 
   const data = useSelector(selectData);
   const status = useSelector(selectStatus);
@@ -82,6 +82,8 @@ const Movies = () => {
           </>
         );
       }
+    default:
+      break;
   }
 };
 export default Movies;

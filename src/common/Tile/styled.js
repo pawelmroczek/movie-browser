@@ -66,7 +66,7 @@ export const TileTitle = styled.header`
 		-webkit-line-clamp: 2;
 		font-size: 22px;
 		padding-top: 16px;
-		height: auto;
+		max-height: 65px;
 	}
 `
 

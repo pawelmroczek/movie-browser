@@ -8,6 +8,7 @@ import {
 	RatingValues,
 	RatingValue,
 	RatingTotal,
+	RatingQty,
 } from './styled'
 import pleksa from '../img/Pleksa.png'
 import star from '../../../common/images/Vector.svg'
@@ -25,7 +26,7 @@ const MovieBanner = () => {
 							<RatingValue>7,8 </RatingValue>
 							<RatingTotal>/ 10</RatingTotal>
 						</RatingValues>
-						<span>335 votes</span>
+						<RatingQty>335 votes</RatingQty>
 					</Rating>
 				</Header>
 			</ImageContainer>

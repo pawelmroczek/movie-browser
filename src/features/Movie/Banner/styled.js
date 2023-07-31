@@ -5,6 +5,11 @@ export const ImageContainer = styled.div`
 	background-size: contain;
 	background-position-x: center;
 	position: relative;
+	margin: 0 0 16px;
+
+	@media (min-width: 992px) {
+		margin: 0 0 64px;
+	}
 `
 
 export const Pleksa = styled.img`
@@ -16,7 +21,7 @@ export const StarImage = styled.img`
 	width: 16px;
 	height: 16px;
 
-	@media (min-width: 768px) {
+	@media (min-width: 992px) {
 		width: 40px;
 		height: 40px;
 	}
@@ -27,7 +32,7 @@ export const Title = styled.div`
 	font-weight: 600;
 	line-height: 120%;
 
-	@media (min-width: 768px) {
+	@media (min-width: 992px) {
 		font-size: 44px;
 	}
 
@@ -42,7 +47,7 @@ export const Header = styled.div`
 	margin: 0 16px;
 	color: white;
 
-	@media (min-width: 768px) {
+	@media (min-width: 992px) {
 		bottom: 56px;
 		margin: 0 150px;
 	}
@@ -60,6 +65,10 @@ export const Rating = styled.div`
 	max-width: 125px;
 	flex-wrap: wrap;
 	gap: 8px;
+
+	@media (min-width: 992px) {
+		margin: 24.5px 0 0;
+	}
 `
 
 export const RatingValues = styled.div`
@@ -72,7 +81,7 @@ export const RatingValue = styled.span`
 	font-size: 14px;
 	font-weight: 600;
 
-	@media (min-width: 768px) {
+	@media (min-width: 992px) {
 		font-size: 30px;
 	}
 `
@@ -80,7 +89,19 @@ export const RatingValue = styled.span`
 export const RatingTotal = styled.span`
 	font-size: 10px;
 
-	@media (min-width: 768px) {
+	@media (min-width: 992px) {
+		font-size: 16px;
+		padding: 0 0 4px;
+	}
+`
+
+export const RatingQty = styled.span`
+	font-size: 10px;
+	display: flex;
+	align-items: end;
+
+	@media (min-width: 992px) {
+		margin: 8px 0 0;
 		font-size: 16px;
 	}
 `

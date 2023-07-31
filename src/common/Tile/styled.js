@@ -63,7 +63,7 @@ export const TileTitle = styled.header`
 	@media (min-width: 768px) {
 		font-size: 22px;
 		padding-top: 16px;
-        max-height: 65px;
+        max-height: 68px;
 	}
 `
 

@@ -81,6 +81,22 @@ export const Year = styled.div`
 		top: 8px;
 	}
 `
+
+export const Tag = styled.li`
+    background: ${({theme}) => theme.color.mystic};
+    font-size: 10px;
+    border-radius: 5px;
+    padding: 4px 8px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+
+    @media (min-width: 768px) {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
 export const Tags = styled.ul`
 	list-style: none;
 	display: flex;
@@ -91,6 +107,7 @@ export const Tags = styled.ul`
 	@media (min-width: 768px) {
 		font-size: 16px;
 	}
+
 `
 export const Rating = styled.div`
 	display: flex;

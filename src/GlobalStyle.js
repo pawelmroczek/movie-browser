@@ -10,7 +10,6 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        max-width: 1940px;
         margin: 0 auto;
         font-family: 'Poppins', sans-serif;
         color: ${({theme}) => theme.color.woodsmoke};

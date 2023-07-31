@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Tag, Tags } from "../Genres/styled";
 
 export const StyledPagination = styled.div`
   display: flex;

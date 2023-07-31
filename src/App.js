@@ -1,33 +1,27 @@
-import React from 'react';
-import { ThemeProvider } from 'styled-components';
-import { theme } from './theme';
-import { Container, Content, Title} from './common/Container';
-import { Navigation } from './common/Navigation';
-import { Tile } from './common/Tile';
-import { Pagination } from './common/Pagination';
-import { GlobalStyle } from './GlobalStyle';
+import React from 'react'
+import { Navigation } from './common/Navigation'
+import Movies from './features/Movies'
+import { HashRouter, Redirect, Route, Switch } from 'react-router-dom/cjs/react-router-dom'
+import People from './features/People'
+import { toMovies, toPeople } from './routes'
 
 function App() {
-  return (
-    <ThemeProvider theme={theme}>
-      <Navigation />
-      <GlobalStyle />
-      <Container>
-        <Title>Popular movies</Title>
-        <Content>
-          <Tile />
-          <Tile />
-          <Tile />
-          <Tile />
-          <Tile />
-          <Tile />
-          <Tile />
-          <Tile />
-        </Content>
-      </Container>
-      <Pagination />
-    </ThemeProvider>
-  );
+	return (
+		<HashRouter>
+			<Navigation />
+			<Switch>
+				<Route path={toMovies()}>
+					<Movies />
+				</Route>
+				<Route path={toPeople()}>
+					<People />
+				</Route>
+				<Route path='/'>
+					<Redirect to={toMovies()} />
+				</Route>
+			</Switch>
+		</HashRouter>
+	)
 }
 
-export default App;
+export default App

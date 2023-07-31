@@ -1,5 +1,5 @@
 import React from "react";
-import { StyledTags,  ImageGreaterThan, ImageLessThan, Image, PageNumber, StyledPagination, GrayTag, BlueTag, Number } from "./styled";
+import { StyledTags, FirstVector, PageNumber, StyledPagination, GrayTag, BlueTag, Number, Text, SecondVector } from "./styled";
 import lessThan from "../images/lessThan.svg";
 import greaterThan from "../images/greaterThan.svg";
 
@@ -8,35 +8,36 @@ export const Pagination = () => (
     <StyledPagination>
         <StyledTags>
             <GrayTag
-            to="/first"
+                to="/first"
             >
-                <ImageLessThan src={lessThan} alt="" />
-                First
+                <FirstVector src={lessThan} alt="" />
+                <SecondVector src={lessThan} alt="" />
+                <Text>First</Text>
             </GrayTag>
             <GrayTag
-            to="/previous"
+                to="/previous"
             >
-                <ImageLessThan src={lessThan} alt="" />
-                Previous
+                <FirstVector src={lessThan} alt="" />
+                <Text>Previous</Text>
             </GrayTag>
         </StyledTags>
         <PageNumber>
-                Page <Number>1</Number> of <Number>500</Number>
-            </PageNumber>
+            Page <Number>1</Number> of <Number>500</Number>
+        </PageNumber>
         <StyledTags>
-        <BlueTag
-            to="/next"
+            <BlueTag
+                to="/next"
             >
-                Next
-                <ImageGreaterThan src={greaterThan} alt="" />
+                <Text>Next</Text>
+                <FirstVector src={greaterThan} alt="" />
             </BlueTag>
             <BlueTag
-            to="/last"
+                to="/last"
             >
-                Last
-                <ImageGreaterThan src={greaterThan} alt="" />
+                <Text>Last</Text>
+                <FirstVector src={greaterThan} alt="" />
+                <SecondVector src={greaterThan} alt="" />
             </BlueTag>
         </StyledTags>
     </StyledPagination>
-
 );

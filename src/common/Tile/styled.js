@@ -83,7 +83,7 @@ export const Year = styled.div`
 `
 
 export const Tag = styled.li`
-    background: ${({theme}) => theme.color.mystic};
+background: ${({ theme }) => theme.color.mystic};
     font-size: 10px;
     border-radius: 5px;
     padding: 4px 8px;
@@ -96,6 +96,7 @@ export const Tag = styled.li`
         font-size: 14px;
         padding: 8px 16px;
     }
+`
 
 export const Tags = styled.ul`
 	list-style: none;

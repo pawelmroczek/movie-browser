@@ -55,4 +55,32 @@ export const Header = styled.div`
 		margin: 0 276px;
 	}
 `
-export const Rating = styled.div``
+export const Rating = styled.div`
+	display: flex;
+	max-width: 125px;
+	flex-wrap: wrap;
+	gap: 8px;
+`
+
+export const RatingValues = styled.div`
+	display: flex;
+	gap: 5px;
+	align-items: end;
+`
+
+export const RatingValue = styled.span`
+	font-size: 14px;
+	font-weight: 600;
+
+	@media (min-width: 768px) {
+		font-size: 30px;
+	}
+`
+
+export const RatingTotal = styled.span`
+	font-size: 10px;
+
+	@media (min-width: 768px) {
+		font-size: 16px;
+	}
+`

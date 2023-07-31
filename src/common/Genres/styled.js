@@ -5,10 +5,10 @@ export const Tags = styled.ul`
 	display: flex;
 	flex-wrap: wrap;
 	align-items: flex-start;
+    margin: 12px 0 12px 0;
 	padding: 0;
 	max-height: 55px;
 	overflow: hidden;
-	margin: 8px 0 12px;
 
 	@media (min-width: 768px) {
 		font-size: 16px;
@@ -22,7 +22,7 @@ export const Tag = styled.li`
 	border-radius: 5px;
 	padding: 4px 8px;
 	margin-right: 8px;
-	margin-bottom: 8px;
+    margin-bottom: 8px;
 	display: flex;
 	align-items: center;
 

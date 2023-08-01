@@ -1,5 +1,5 @@
 import React from 'react'
-import { PersonPicture, PersonPoster, PersonTitle, StyledActordTile } from './styled'
+import { PersonPicture, PersonPoster, PersonTitle, StyledActorTile } from './styled'
 import customPoster from '../images/Video.svg'
 
 export const ActorTile = ({ people }) => {
@@ -10,11 +10,11 @@ export const ActorTile = ({ people }) => {
 	const posterUrl = people.profile_path ? `https://image.tmdb.org/t/p/w500${people.profile_path}` : customPoster
 
 	return (
-		<StyledActordTile key={people.id}>
+		<StyledActorTile key={people.id}>
 			<PersonPicture>
 				<PersonPoster src={posterUrl} alt='' $isCustom={posterUrl === customPoster} />
 			</PersonPicture>
 			<PersonTitle>{people.name}</PersonTitle>
-		</StyledActordTile>
+		</StyledActorTile>
 	)
 }

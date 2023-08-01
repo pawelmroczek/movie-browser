@@ -12,7 +12,7 @@ export const PersonContent = styled.div`
 }
 `
 
-export const StyledActordTile = styled.article`
+export const StyledActorTile = styled.article`
 	background: ${({ theme }) => theme.color.white};
 	box-shadow: 0px 4px 12px 0px #bac7d580;
 	border-radius: 5px;
@@ -44,6 +44,7 @@ export const PersonPoster = styled.img`
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 5px;
 
     @media (min-width: 768px) {
         

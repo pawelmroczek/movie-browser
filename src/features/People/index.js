@@ -1,16 +1,16 @@
 import React from "react";
 import { ActorTile } from '../../common/ActorTile'
-import { Container, Title} from "../../common/Container";
+import { Container, Title } from "../../common/Container";
 import { PersonContent } from "../../common/ActorTile/styled";
 import { Pagination } from '../../common/Pagination'
 import { useQueryParameter } from '../../queryParameters'
 import searchQueryParamName from '../../searchQueryParamName'
-import { fetchSearchResult, selectPopularPeople, selectStatus } from "../browserSlice";
+import { fetchSearchResult, selectPerson, selectPopularPeople, selectStatus } from "../browserSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 
 export const People = () => {
-   const query = useQueryParameter(searchQueryParamName)
+	const query = useQueryParameter(searchQueryParamName)
 	const dispatch = useDispatch()
 
 	useEffect(() => {
@@ -19,9 +19,9 @@ export const People = () => {
 
 	const status = useSelector(selectStatus)
 	const people = useSelector(selectPopularPeople)
+	const person = useSelector(selectPerson)
 
-
-    switch (status) {
+	switch (status) {
 		case 'loading':
 			return (
 				<Container>
@@ -45,7 +45,9 @@ export const People = () => {
 								Search results for "{query}" ({people.length})
 							</Title>
 							<PersonContent>
-								<ActorTile></ActorTile>
+								{person.results.map(person => (
+									<ActorTile key={person.id} people={person} />
+								))}
 							</PersonContent>
 						</Container>
 						<Pagination />

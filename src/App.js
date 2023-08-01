@@ -2,8 +2,9 @@ import React from 'react'
 import { Navigation } from './common/Navigation'
 import Movies from './features/Movies'
 import { HashRouter, Redirect, Route, Switch } from 'react-router-dom/cjs/react-router-dom'
-import { toMovies, toPeople } from './routes'
 import { People } from './features/People'
+import { toMovies, toPeople } from './routes'
+
 
 function App() {
 	return (

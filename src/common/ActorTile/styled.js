@@ -32,6 +32,7 @@ export const StyledActorTile = styled.article`
 }
 `
 export const PersonPicture = styled.div`
+    background: ${({ theme }) => theme.color.silver};
     width: 120px;
     height: 178px;
 

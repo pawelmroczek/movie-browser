@@ -58,21 +58,18 @@ export const TileContent = styled.div`
 		height: 100%;
 	}
 `
-
 export const TileTitle = styled.header`
 	font-weight: 500;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	display: -webkit-box;
-	-webkit-line-clamp: 3;
+	-webkit-line-clamp: 2;
 	-webkit-box-orient: vertical;
-	padding: 0 0 4px;
 
 	@media (min-width: 768px) {
-		-webkit-line-clamp: 2;
 		font-size: 22px;
 		padding-top: 16px;
-		max-height: 65px;
+        max-height: 68px;
 	}
 `
 
@@ -81,12 +78,29 @@ export const Year = styled.div`
 	position: relative;
 	font-size: 13px;
 	font-weight: 400;
+    padding-top: 4px;
 
 	@media (min-width: 768px) {
 		font-size: 16px;
-		top: 8px;
 	}
 `
+
+export const Tag = styled.li`
+background: ${({ theme }) => theme.color.mystic};
+    font-size: 10px;
+    border-radius: 5px;
+    padding: 4px 8px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+
+    @media (min-width: 768px) {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+`
+
 export const Tags = styled.ul`
 	list-style: none;
 	display: flex;
@@ -97,12 +111,14 @@ export const Tags = styled.ul`
 	@media (min-width: 768px) {
 		font-size: 16px;
 	}
+
 `
 export const Rating = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: row;
 	align-items: end;
+    margin-top: -8px;
 `
 export const StarImage = styled.img`
 	width: 16px;

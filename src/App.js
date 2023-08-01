@@ -1,5 +1,6 @@
 import React from 'react'
 import { Navigation } from './common/Navigation'
+
 import Movie from './features/Movie'
 import Movies from './features/Movies'
 import { HashRouter, Redirect, Route, Switch } from 'react-router-dom/cjs/react-router-dom'

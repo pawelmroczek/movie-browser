@@ -7,7 +7,7 @@ export const ImageContainer = styled.div`
 	position: relative;
 	margin: 0 0 16px;
 
-	@media (min-width: 992px) {
+	@media (min-width: 768px) {
 		margin: 0 0 64px;
 	}
 `

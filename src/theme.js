@@ -8,6 +8,7 @@ export const theme = {
     woodsmoke: "#18181B",
     darkerGray: "#7E839A",
     pattensBlue: "#D6E4FF",
+    blue:"#0044CC",
   },
   media: {
     phoneMedia: 767,

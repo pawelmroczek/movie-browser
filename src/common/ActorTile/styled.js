@@ -1,0 +1,66 @@
+import styled from 'styled-components'
+
+export const PersonContent = styled.div`
+	display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill, 136px);
+    grid-gap: 16px;
+    
+    @media (min-width: 768px) {
+        grid-template-columns: repeat(auto-fill, 208px);
+        grid-gap: 24px;
+}
+`
+
+export const StyledActordTile = styled.article`
+	background: ${({ theme }) => theme.color.white};
+	box-shadow: 0px 4px 12px 0px #bac7d580;
+	border-radius: 5px;
+	padding: 8px;
+    width: 136px;
+    height: 245px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;;
+    align-items: center;
+
+
+    @media (min-width: 768px) {
+        width: 208px;
+        height: 339px;  
+        padding: 16px;
+}
+`
+export const PersonPicture = styled.div`
+    width: 120px;
+    height: 178px;
+
+    @media (min-width: 768px) {
+        width: 176px;
+        height: 231px; 
+}`
+
+export const PersonPoster = styled.img`
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    @media (min-width: 768px) {
+        
+        
+        
+}
+`
+export const PersonTitle = styled.header`
+    font-weight: 500;
+    font-size: 14px;
+    text-align: center;
+    display: flex;
+    flex-grow: 1;
+    padding-top: 8px;
+
+    @media (min-width: 768px) {
+        font-size: 22px;
+        padding-top: 12px;
+}
+`

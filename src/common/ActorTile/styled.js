@@ -35,6 +35,9 @@ export const PersonPicture = styled.div`
     background: ${({ theme }) => theme.color.silver};
     width: 120px;
     height: 178px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     @media (min-width: 768px) {
         width: 176px;
@@ -42,17 +45,13 @@ export const PersonPicture = styled.div`
 }`
 
 export const PersonPoster = styled.img`
-    width: 100%;
-    height: 100%;
+    width: ${({ $isCustom }) => ($isCustom ? '45.45px' : '100%')};
+	height: ${({ $isCustom }) => ($isCustom ? '57.67px' : '100%')};    
     object-fit: cover;
     border-radius: 5px;
-
-    @media (min-width: 768px) {
-        
-        
-        
-}
 `
+
+
 export const PersonTitle = styled.header`
     font-weight: 500;
     font-size: 14px;

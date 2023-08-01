@@ -1,6 +1,6 @@
 import React from 'react'
 import { PersonPicture, PersonPoster, PersonTitle, StyledActorTile } from './styled'
-import customPoster from '../images/Video.svg'
+import customPoster from '../images/Profile.svg'
 
 export const ActorTile = ({ people }) => {
 	if (!people) {

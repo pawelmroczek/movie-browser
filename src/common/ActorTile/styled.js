@@ -9,7 +9,7 @@ export const PersonContent = styled.div`
     @media (min-width: 768px) {
         grid-template-columns: repeat(auto-fill, 208px);
         grid-gap: 24px;
-}
+    }
 `
 
 export const StyledActorTile = styled.article`
@@ -29,7 +29,7 @@ export const StyledActorTile = styled.article`
         width: 208px;
         height: 339px;  
         padding: 16px;
-}
+    }
 `
 export const PersonPicture = styled.div`
     background: ${({ theme }) => theme.color.silver};
@@ -42,7 +42,8 @@ export const PersonPicture = styled.div`
     @media (min-width: 768px) {
         width: 176px;
         height: 231px; 
-}`
+    }
+`
 
 export const PersonPoster = styled.img`
     width: ${({ $isCustom }) => ($isCustom ? '45.45px' : '100%')};
@@ -63,5 +64,5 @@ export const PersonTitle = styled.header`
     @media (min-width: 768px) {
         font-size: 22px;
         padding-top: 12px;
-}
+    }
 `

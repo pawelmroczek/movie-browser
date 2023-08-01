@@ -23,11 +23,11 @@ export const People = () => {
 
 	switch (status) {
 		case 'loading':
-			return (
+			return query ? (
 				<Container>
 					<Title>Search results for "{query}"</Title>
 				</Container>
-			)
+			) : null;
 		case 'error':
 			return <Container>Ooops! Something went wrong...</Container>
 		case 'success':

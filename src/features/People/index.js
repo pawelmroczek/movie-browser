@@ -17,6 +17,13 @@ export const People = () => {
 		dispatch(fetchSearchResult(query))
 	}, [query, dispatch])
 
+	useEffect(() => {
+		dispatch(fetchSearchResult(query));
+	  
+		const url = window.location.href.split('?')[0];
+		window.history.replaceState({}, document.title, url);
+	  }, [query, dispatch]);
+
 	const status = useSelector(selectStatus)
 	const people = useSelector(selectPopularPeople)
 	const person = useSelector(selectPerson)

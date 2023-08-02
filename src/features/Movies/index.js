@@ -7,6 +7,9 @@ import { useQueryParameter } from '../../queryParameters'
 import searchQueryParamName from '../../searchQueryParamName'
 import { fetchSearchResult, selectData, selectStatus, selectGenres } from '../browserSlice'
 import { getPopularMovies } from './getPopularMovies'
+import NoResults from '../States/NoResults'
+import Loader from '../States/Loader'
+import Error from '../States/Error'
 
 const Movies = () => {
 	const [popularMovies, setPopularMovies] = useState([])
@@ -39,17 +42,23 @@ const Movies = () => {
 	switch (status) {
 		case 'loading':
 			return (
+				query ? 
 				<Container>
 					<Title>Search results for "{query}"</Title>
+					<Loader/>
+				</Container>
+				: <Container>
+					<Loader/>
 				</Container>
 			)
 		case 'error':
-			return <Container>Ooops! Something went wrong...</Container>
+			return <Container><Error/></Container>
 		case 'success':
 			if (!movies.length && query) {
 				return (
 					<Container>
 						<Title>Sorry, there are no results for "{query}"</Title>
+						<NoResults/>
 					</Container>
 				)
 			} else if (query) {

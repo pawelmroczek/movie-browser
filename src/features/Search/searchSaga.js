@@ -12,7 +12,7 @@ function* fetchSearchResultsHandler(query) {
     yield put(setGenres(genres));
     yield put(setStatus("success"));
   } catch (error) {
-    yield put(setStatus(error));
+    yield put(setStatus("error"));
   }
 }
 

@@ -5,7 +5,7 @@ import {
 } from "../../../queryParameters";
 import { useEffect, useState } from "react";
 import searchQueryParamName from "../../../searchQueryParamName";
-import { usePrevious } from "./usePrevious";
+import { usePrevious } from "../../usePrevious";
 
 export const useSearchInput = () => {
   const location = useLocation();

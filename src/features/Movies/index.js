@@ -25,6 +25,7 @@ const Movies = () => {
 	const status = useSelector(selectStatus)
 	const genres = useSelector(selectGenres)
 	const movies = data.results || []
+	const totalResults = data.total_results; 
 
 	useEffect(() => {
 		const fetchPopularMovies = async () => {
@@ -66,7 +67,7 @@ const Movies = () => {
 					<>
 						<Container>
 							<Title>
-								Search results for "{query}" ({movies.length})
+								Search results for "{query}" ({totalResults})
 							</Title>
 							<Content>
 								{movies.map(movie => (

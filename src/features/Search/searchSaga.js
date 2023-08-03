@@ -5,16 +5,16 @@ import { getGenres } from "../../common/Genres/getGenres";
 import { getPopularPeople } from "../People/getPopularPeople";
 import { getPerson } from "./getSearchPeople";
 
-function* fetchSearchResultsHandler({ payload: query }) {
+function* fetchSearchResultsHandler({ payload: object}) {
   try {
     yield put(setStatus("loading"));
-    const data = yield call(getSearchResults, query);
+    const data = yield call(getSearchResults, object.query, object.page);
     yield put(setData(data));
     const genres = yield call(getGenres);
     yield put(setGenres(genres));
     const people = yield call(getPopularPeople);
     yield put(setPopularPeople(people));
-    const person = yield call(getPerson, query);
+    const person = yield call(getPerson, object.query);
     yield put(setPerson(person));
     yield put(setStatus("success"));
   } catch (error) {

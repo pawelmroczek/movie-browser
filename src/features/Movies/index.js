@@ -10,16 +10,27 @@ import { getPopularMovies } from './getPopularMovies'
 import NoResults from '../States/NoResults'
 import Loader from '../States/Loader'
 import Error from '../States/Error'
+import paginationParamName from '../../paginationParamName'
 
 const Movies = () => {
 	const [popularMovies, setPopularMovies] = useState([])
 
 	const query = useQueryParameter(searchQueryParamName)
+	const page= useQueryParameter(paginationParamName)
+	
 	const dispatch = useDispatch()
 
+
+	
+
 	useEffect(() => {
-		dispatch(fetchSearchResult(query))
-	}, [query, dispatch])
+		const payload={
+			query:query,
+			page:page || 1,
+		}
+
+		dispatch(fetchSearchResult(payload))
+	}, [query, dispatch,page])
 
 	const data = useSelector(selectData)
 	const status = useSelector(selectStatus)

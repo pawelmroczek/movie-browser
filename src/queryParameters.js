@@ -13,7 +13,7 @@ export const useReplaceQueryParameter = () => {
   const location = useLocation();
   const history = useHistory();
 
-  return useCallback(({ key, value }) => { // Dodaj useCallback
+  return useCallback(({ key, value }) => {
     const searchParams = new URLSearchParams(location.search);
 
     if (value === undefined) {

@@ -19,10 +19,13 @@ import {
 } from './styled'
 import moviephoto from '../img/poster.png'
 import star from '../../../common/images/Vector.svg'
+import useMovie from './useMovie'
 
-const MovieTile = () => {
+const MovieTile = ({ movie }) => {
 	const [isWideScreen, setIsWideScreen] = useState(window.innerWidth > 768)
-
+	
+	const description = useMovie(movie);
+	console.log(description)
 	useEffect(() => {
 		const handleResize = () => {
 			setIsWideScreen(window.innerWidth > 768)
@@ -34,6 +37,7 @@ const MovieTile = () => {
 			window.removeEventListener('resize', handleResize)
 		}
 	}, [])
+
 
 	return (
 		<TileWrapper>
@@ -61,23 +65,11 @@ const MovieTile = () => {
 					</RatingValue>
 					<VotesQty>35 votes</VotesQty>
 				</RatingWrapper>
-				{isWideScreen && (
-					<Description>
-						A young Chinese maiden disguises herself as a male warrior in order to save her father. Disguises herself as
-						a male warrior in order to save her father. A young Chinese maiden disguises herself as a male warrior in
-						order to save her father.
-					</Description>
-				)}
+				{isWideScreen && <Description>{description}</Description>}
 			</Details>
-			{!isWideScreen && (
-				<Description>
-					A young Chinese maiden disguises herself as a male warrior in order to save her father. Disguises herself as a
-					male warrior in order to save her father. A young Chinese maiden disguises herself as a male warrior in order
-					to save her father.
-				</Description>
-			)}
+			{!isWideScreen && <Description>{description}</Description>}
 		</TileWrapper>
-	)
+    )
 }
 
 export default MovieTile

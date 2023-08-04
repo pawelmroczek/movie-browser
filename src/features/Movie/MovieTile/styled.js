@@ -51,7 +51,6 @@ export const Title = styled.span`
 
 export const Name = styled.span`
 	display: none;
-
 	@media (min-width: 768px) {
 		display: block;
 		color: #74788b;

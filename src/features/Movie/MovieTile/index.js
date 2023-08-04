@@ -17,15 +17,17 @@ import {
 	VotesQty,
 	Description,
 } from './styled'
-import moviephoto from '../img/poster.png'
 import star from '../../../common/images/Vector.svg'
 import useMovie from './useMovie'
+import { useParams } from 'react-router-dom';
 
-const MovieTile = ({ movie }) => {
+
+const MovieTile = () => {
 	const [isWideScreen, setIsWideScreen] = useState(window.innerWidth > 768)
-	
-	const description = useMovie(movie);
-	console.log(description)
+
+	const { id } = useParams();
+	const movieId = id;
+
 	useEffect(() => {
 		const handleResize = () => {
 			setIsWideScreen(window.innerWidth > 768)
@@ -38,38 +40,58 @@ const MovieTile = ({ movie }) => {
 		}
 	}, [])
 
+	const movieData = useMovie(movieId);
+
+	if (!movieData) {
+		return <div>Loading...</div>;
+	}
+	console.log(movieData)
+	const {
+		title,
+		overview,
+		release_date,
+		vote_average,
+		vote_count,
+		poster_path,
+		genres,
+		production_countries
+	} = movieData;
+
+	const posterUrl = `https://image.tmdb.org/t/p/original${poster_path}`
+
 
 	return (
 		<TileWrapper>
 			<ImageContainer>
-				<Image src={moviephoto} alt='movie' />
+				<Image src={posterUrl} alt='movie' />
 			</ImageContainer>
 			<Details>
-				<Title>Mulan</Title>
-				<Year>2020</Year>
+				<Title>{title}</Title>
+				<Year></Year>
 				<Production>
-					<Name>Production:</Name> China, USA
+					<Name>Production:</Name> 
+					{production_countries.map(country => country.name).join(", ")}
 				</Production>
 				<Production>
-					<Name>Release date:</Name> 24.10.2020
+					<Name>Release date:</Name>{release_date}
 				</Production>
 				<Genres>
-					<Genre>Action</Genre>
-					<Genre>Drama</Genre>
-					<Genre>Adventure</Genre>
+					{genres.map((genre) => (
+						<Genre key={genre.id}>{genre.name}</Genre>
+					))}
 				</Genres>
 				<RatingWrapper>
 					<ImageStar src={star} alt='star' />
 					<RatingValue>
-						7,8<TotalValue>/10</TotalValue>
+						{vote_average}<TotalValue>{vote_count}</TotalValue>
 					</RatingValue>
-					<VotesQty>35 votes</VotesQty>
+					<VotesQty></VotesQty>
 				</RatingWrapper>
-				{isWideScreen && <Description>{description}</Description>}
+				{isWideScreen && <Description>{overview}</Description>}
 			</Details>
-			{!isWideScreen && <Description>{description}</Description>}
+			{!isWideScreen && <Description>{overview}</Description>}
 		</TileWrapper>
-    )
+	)
 }
 
 export default MovieTile

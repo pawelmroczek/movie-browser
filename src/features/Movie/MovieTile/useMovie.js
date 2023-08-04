@@ -1,9 +1,9 @@
 // useFetchMovie.js
 import { useState, useEffect } from 'react'
 
-const useMovie = (movie) => {
-    const [description, setDescription] = useState("")
-
+const useMovie = (movieId) => {
+    const [movieData, setMovieData] = useState(null) 
+    
     useEffect(() => {
         const options = {
             method: 'GET',
@@ -14,15 +14,16 @@ const useMovie = (movie) => {
             },
         }
 
-        fetch(`https://api.themoviedb.org/3/movie/346698?language=en-US`, options)
+        fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=en-US`, options)
             .then(response => response.json())
             .then(response => {
-                setDescription(response.overview)
+                setMovieData(response) 
             })
             .catch(err => console.error(err))
-    }, [movie])
+    }, [movieId])
 
-    return description
+    return movieData;
+    
 }
 
 export default useMovie;

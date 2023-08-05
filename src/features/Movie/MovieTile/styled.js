@@ -29,7 +29,8 @@ export const Image = styled.img`
 	max-width: 114px;
 
 	@media (min-width: 768px) {
-		max-width: 250px;
+		max-width: 312px;
+		max-height: 464px;
 	}
 
 	@media (min-width: 992px) {

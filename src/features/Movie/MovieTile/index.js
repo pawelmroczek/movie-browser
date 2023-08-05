@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 import {
 	TileWrapper,
 	Details,
@@ -17,14 +17,12 @@ import {
 	VotesQty,
 	Description,
 } from './styled'
-import star from '../../../common/images/Vector.svg'
-import useMovie from './useMovie'
+import star from '../../../common/images/Vector.svg';
+import useMovie from './useMovie';
 import { useParams } from 'react-router-dom';
-
 
 const MovieTile = () => {
 	const [isWideScreen, setIsWideScreen] = useState(window.innerWidth > 768)
-
 	const { id } = useParams();
 	const movieId = id;
 
@@ -45,7 +43,7 @@ const MovieTile = () => {
 	if (!movieData) {
 		return <div>Loading...</div>;
 	}
-	console.log(movieData)
+	
 	const {
 		title,
 		overview,
@@ -58,7 +56,6 @@ const MovieTile = () => {
 	} = movieData;
 
 	const posterUrl = `https://image.tmdb.org/t/p/original${poster_path}`
-
 
 	return (
 		<TileWrapper>
@@ -94,4 +91,4 @@ const MovieTile = () => {
 	)
 }
 
-export default MovieTile
+export default MovieTile;

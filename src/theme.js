@@ -9,6 +9,7 @@ export const theme = {
 		darkerGray: '#7E839A',
 		pattensBlue: '#D6E4FF',
 		black: '#000000',
+    blue:"#0044CC",
 	},
 	media: {
 		phoneMedia: 767,

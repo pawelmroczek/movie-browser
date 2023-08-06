@@ -18,7 +18,7 @@ function* fetchSearchResultsHandler({ payload: query }) {
     yield put(setPerson(person));
     yield put(setStatus("success"));
   } catch (error) {
-    yield put(setStatus(error));
+    yield put(setStatus("error"));
   }
 }
 

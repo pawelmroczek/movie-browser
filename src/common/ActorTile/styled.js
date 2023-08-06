@@ -1,4 +1,9 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom/cjs/react-router-dom.min'
+
+export const LinkElement = styled(Link)`
+    text-decoration: none;
+	color: ${({ theme }) => theme.color.black};`
 
 export const PersonContent = styled.div`
 	display: grid;

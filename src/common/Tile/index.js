@@ -33,7 +33,6 @@ export const Tile = ({ movie, genres }) => {
 					<TileTitle>{movie.title}</TileTitle>
 				</LinkElement>
 				<Year>{movie.release_date}</Year>
-
 				<Genres genre_ids={movie.genre_ids} genres={genres} />
 				<Rating>
 					<StarImage src={star} alt=''></StarImage>

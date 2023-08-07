@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import {
   useQueryParameter,
-  useReplaceQueryParameter,
+  useReplacePageParameter,
 } from "../../queryParameters";
 import paginationParamName from "../../paginationParamName";
 import { useSelector } from "react-redux";
@@ -32,30 +32,24 @@ const usePagination = () => {
   };
 
   const previosPageValue = usePrevious(page);
-  const [initialized, setInitialized] = useState(false);
-  const replaceQueryParameter = useReplaceQueryParameter();
+  const replaceQueryParameter = useReplacePageParameter(paginationParamName);
 
   useEffect(() => {
-    if (!initialized) {
-      setInitialized(true);
-      return;
-    }
-
     if (page < 1 || page > totalPages) {
       setNewPage((page) => (page = 1));
-      replaceQueryParameter({ key: paginationParamName, value: undefined });
+      replaceQueryParameter({ key: paginationParamName, value: null });
     }
 
     if (page !== previosPageValue) {
       if (page !== 1) {
         replaceQueryParameter({ key: paginationParamName, value: page });
       } else {
-        replaceQueryParameter({ key: paginationParamName, value: undefined });
+        replaceQueryParameter({ key: paginationParamName, value: null });
       }
     }
 
     return () => {};
-  }, [page, replaceQueryParameter, previosPageValue, initialized, totalPages]);
+  }, [page, replaceQueryParameter, previosPageValue, totalPages]);
 
   return {
     page,

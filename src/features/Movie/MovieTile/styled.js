@@ -29,7 +29,8 @@ export const Image = styled.img`
 	max-width: 114px;
 
 	@media (min-width: 768px) {
-		max-width: 250px;
+		max-width: 312px;
+		max-height: 464px;
 	}
 
 	@media (min-width: 992px) {
@@ -51,7 +52,6 @@ export const Title = styled.span`
 
 export const Name = styled.span`
 	display: none;
-
 	@media (min-width: 768px) {
 		display: block;
 		color: #74788b;

@@ -23,7 +23,8 @@ export const Tile = ({ movie, genres }) => {
 	}
 
 	const posterUrl = movie.poster_path ? `https://image.tmdb.org/t/p/original${movie.poster_path}` : customPoster
-
+	const releaseYear = movie.release_date ? movie.release_date.substring(0, 4) : '';
+	
 	return (
 		<StyledTile>
 			<Poster>
@@ -34,7 +35,7 @@ export const Tile = ({ movie, genres }) => {
 				<LinkElement to={`/movies/${movie.id}`}>
 					<TileTitle>{movie.title}</TileTitle>
 				</LinkElement>
-				<Year>{movie.release_date}</Year>
+        <Year>{releaseYear}</Year>
 				<Genres genre_ids={movie.genre_ids} genres={genres} />
 				</Description>
 				<Rating>

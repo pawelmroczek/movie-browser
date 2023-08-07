@@ -32,6 +32,8 @@ function* fetchPopularHandler({ payload: object }) {
   try {
     yield put(setStatus("loading"));
     const data = yield call(getPopular, object.page, object.destination);
+    const genres = yield call(getGenres);
+    yield put(setGenres(genres));
     yield put(setData(data));
     yield put(setStatus("success"));
   } catch (error) {

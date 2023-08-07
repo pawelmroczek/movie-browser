@@ -1,9 +1,9 @@
 import axios from "axios";
 
-export const getSearchResults = async (searchQuery, page) => {
+export const getSearchResults = async (searchQuery, page, destination) => {
   const options = {
     method: "GET",
-    url: "https://api.themoviedb.org/3/search/movie",
+    url: `https://api.themoviedb.org/3/search/${destination}`,
     params: { query: searchQuery, page: page },
     headers: {
       accept: "application/json",

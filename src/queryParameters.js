@@ -1,4 +1,3 @@
-import { useCallback } from "react";
 import { useHistory, useLocation } from "react-router-dom/cjs/react-router-dom";
 
 export const useQueryParameter = (searchQueryParamName) => {
@@ -9,19 +8,42 @@ export const useQueryParameter = (searchQueryParamName) => {
   return query;
 };
 
-export const useReplaceQueryParameter = () => {
+export const useReplacePageParameter = (test) => {
   const location = useLocation();
   const history = useHistory();
 
-  return useCallback(({ key, value }) => {
+  const query = parseInt(useQueryParameter(test));
+  let check = query;
+  if (isNaN(query)) {
+    check = null;
+  }
+  return ({ key, value }) => {
     const searchParams = new URLSearchParams(location.search);
-
-    if (value === undefined) {
-        searchParams.delete(key);
+    if (value === null) {
+      searchParams.delete(key);
     } else {
-        searchParams.set(key, value);
+      searchParams.set(key, value);
     }
+    if (check !== value) {
+      history.push(`${location.pathname}?${searchParams.toString()}`);
+    }
+  };
+};
 
-    history.push(`${location.pathname}?${searchParams.toString()}`);
-}, [history, location]);
+export const useDelete = (toDelete, test) => {
+  const location = useLocation();
+  const history = useHistory();
+  const query = useQueryParameter(test);
+  return ({ key, value }) => {
+    const searchParams = new URLSearchParams(location.search);
+    if (value === null) {
+      searchParams.delete(key);
+    } else {
+      searchParams.set(key, value);
+    }
+    searchParams.delete(toDelete);
+    if (query !== value) {
+      history.push(`${location.pathname}?${searchParams.toString()}`);
+    }
+  };
 };

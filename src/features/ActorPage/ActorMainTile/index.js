@@ -1,4 +1,4 @@
-import poster from '../../../common/images/poster.png'
+import poster from '../../Movie/img/actor.png'
 import { About, DateOfBirth, ImagePoster, LabelText, PlaceOfBirth, Poster, StyledTileActor, TileContent, TileTitle } from './styled';
 const ActorMainTile = () => {
     return (

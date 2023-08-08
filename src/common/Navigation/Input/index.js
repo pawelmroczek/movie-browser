@@ -1,12 +1,10 @@
 import { Container, StyledIcon, StyledInput } from "./styled";
 import search from "../../images/Search.svg";
 import { useRef } from "react";
-import { useSearchInput } from "./useSearchInput";
 
-const Input = () => {
+const Input = ({ isMoviesPage, onInputChange, newInputValue }) => {
   const inputRef = useRef(null);
 
-  const { newInputValue, onInputChange, isMoviesPage } = useSearchInput();
   const placeholderText = isMoviesPage
     ? "Search for movies..."
     : "Search for people...";

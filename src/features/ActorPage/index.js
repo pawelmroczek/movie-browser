@@ -10,7 +10,7 @@ const ActorPage = () => {
             <Content>
                 <ActorMainTile />
             </Content>
-            <MovieCast title="Movie - cast"/>
+            <MovieCast />
             <MovieCrew />
         </>
     )

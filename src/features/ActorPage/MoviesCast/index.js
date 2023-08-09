@@ -1,9 +1,9 @@
 import { Genres } from "../../../common/Genres";
 import { Tile } from "../../../common/Tile";
-import { ImagePoster, LinkElement, Poster, Rate, Rating, StarImage, StyledTile, TileContent, TileTitle, Votes, Year } from "../../../common/Tile/styled";
+import { ImagePoster, LinkElement, Poster, Rate, StarImage, StyledTile, TileTitle, Votes, Year } from "../../../common/Tile/styled";
 import poster from "../../../common/images/poster.png"
 import star from "../../../common/images/Vector.svg"
-import { Container, Movies } from "./styled";
+import { Container, Movies, Rating, TileContent } from "./styled";
 import { Header, Wrapper } from "../../Movie/People/styled";
 
 const MovieCast = () => {
@@ -11,7 +11,7 @@ const MovieCast = () => {
     return (
         <Wrapper>
             <Container>
-                <Header> Movies - cast
+                <Header> Movies - cast (4)
                 </Header>
                 <Movies>
                         <StyledTile>

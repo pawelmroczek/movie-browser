@@ -10,8 +10,8 @@ const ActorMainTile = () => {
                 <TileContent>
                     <TileTitle>Liu Yifei</TileTitle>
                     <DateOfBirth>
-                        <LabelText>Date of birth:</LabelText>
-                        25.08.1987
+                        <LabelText>Birth</LabelText>
+                         25.08.1987
                     </DateOfBirth>
                     <PlaceOfBirth>
                         <LabelText>Place of birth:</LabelText>

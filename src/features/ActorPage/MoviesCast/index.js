@@ -1,53 +1,107 @@
-import { Genres } from "../../../common/Genres";
-import { Tile } from "../../../common/Tile";
 import { ImagePoster, LinkElement, Poster, Rate, StarImage, StyledTile, TileTitle, Votes, Year } from "../../../common/Tile/styled";
 import poster from "../../../common/images/poster.png"
 import star from "../../../common/images/Vector.svg"
-import { Container, Movies, Rating, TileContent } from "./styled";
-import { Header, Wrapper } from "../../Movie/People/styled";
+import { Container, Header, Movies, Rating, Tag, Tags, TileContent } from "./styled";
+import { Wrapper } from "../../Movie/People/styled";
 
 const MovieCast = () => {
 
     return (
         <Wrapper>
+            <Header> Movies - cast (4)
+            </Header>
             <Container>
-                <Header> Movies - cast (4)
-                </Header>
-                <Movies>
-                        <StyledTile>
-                            <Poster>
-                                <ImagePoster src={poster} alt=''></ImagePoster>
-                            </Poster>
-                            <TileContent>
-                                <LinkElement>
-                                    <TileTitle>Mulan</TileTitle>
-                                </LinkElement>
-                                <Year>Mulan (2020)</Year>
-                                <Rating>
-                                    <StarImage src={star} alt=''></StarImage>
-                                    <Rate>7,8</Rate>
-                                    <Votes> 35 votes</Votes>
-                                </Rating>
-                            </TileContent>
-                        </StyledTile>
+            <Movies>
+                    <StyledTile>
+                        <Poster>
+                            <ImagePoster src={poster} alt=''></ImagePoster>
+                        </Poster>
+                        <TileContent>
+                            <LinkElement>
+                                <TileTitle>Mulan</TileTitle>
+                            </LinkElement>
+                            <Year>Mulan (2020)</Year>
+                            <Tags>
+                                <Tag>Action</Tag>
+                                <Tag>Adventure</Tag>
+                                <Tag>Drama</Tag>
+                            </Tags>
+                            <Rating>
+                                <StarImage src={star} alt=''></StarImage>
+                                <Rate>7,8</Rate>
+                                <Votes> 35 votes</Votes>
+                            </Rating>
+                        </TileContent>
+                    </StyledTile>
                 </Movies>
                 <Movies>
-                        <StyledTile>
-                            <Poster>
-                                <ImagePoster src={poster} alt=''></ImagePoster>
-                            </Poster>
-                            <TileContent>
-                                <LinkElement>
-                                    <TileTitle>Mulan</TileTitle>
-                                </LinkElement>
-                                <Year>Mulan (2020)</Year>
-                                <Rating>
-                                    <StarImage src={star} alt=''></StarImage>
-                                    <Rate>7,8</Rate>
-                                    <Votes> 35 votes</Votes>
-                                </Rating>
-                            </TileContent>
-                        </StyledTile>
+                    <StyledTile>
+                        <Poster>
+                            <ImagePoster src={poster} alt=''></ImagePoster>
+                        </Poster>
+                        <TileContent>
+                            <LinkElement>
+                                <TileTitle>Mulan</TileTitle>
+                            </LinkElement>
+                            <Year>Mulan (2020)</Year>
+                            <Tags>
+                                <Tag>Action</Tag>
+                                <Tag>Adventure</Tag>
+                                <Tag>Drama</Tag>
+                            </Tags>
+                            <Rating>
+                                <StarImage src={star} alt=''></StarImage>
+                                <Rate>7,8</Rate>
+                                <Votes> 35 votes</Votes>
+                            </Rating>
+                        </TileContent>
+                    </StyledTile>
+                </Movies>
+                <Movies>
+                    <StyledTile>
+                        <Poster>
+                            <ImagePoster src={poster} alt=''></ImagePoster>
+                        </Poster>
+                        <TileContent>
+                            <LinkElement>
+                                <TileTitle>Mulan</TileTitle>
+                            </LinkElement>
+                            <Year>Mulan (2020)</Year>
+                            <Tags>
+                                <Tag>Action</Tag>
+                                <Tag>Adventure</Tag>
+                                <Tag>Drama</Tag>
+                            </Tags>
+                            <Rating>
+                                <StarImage src={star} alt=''></StarImage>
+                                <Rate>7,8</Rate>
+                                <Votes> 35 votes</Votes>
+                            </Rating>
+                        </TileContent>
+                    </StyledTile>
+                </Movies>
+                <Movies>
+                    <StyledTile>
+                        <Poster>
+                            <ImagePoster src={poster} alt=''></ImagePoster>
+                        </Poster>
+                        <TileContent>
+                            <LinkElement>
+                                <TileTitle>Mulan</TileTitle>
+                            </LinkElement>
+                            <Year>Mulan (2020)</Year>
+                            <Tags>
+                                <Tag>Action</Tag>
+                                <Tag>Adventure</Tag>
+                                <Tag>Drama</Tag>
+                            </Tags>
+                            <Rating>
+                                <StarImage src={star} alt=''></StarImage>
+                                <Rate>7,8</Rate>
+                                <Votes> 35 votes</Votes>
+                            </Rating>
+                        </TileContent>
+                    </StyledTile>
                 </Movies>
             </Container>
         </Wrapper>

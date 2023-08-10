@@ -1,6 +1,7 @@
 import React from "react";
 import {
 	LinkElement,
+	LinkImage,
 	StyledTile,
 	Rating,
 	TileContent,
@@ -23,20 +24,22 @@ export const Tile = ({ movie, genres }) => {
   }
 
 	const posterUrl = movie.poster_path ? `https://image.tmdb.org/t/p/original${movie.poster_path}` : customPoster
-	const releaseYear = movie.release_date ? movie.release_date.substring(0, 4) : '';
-	
+	const releaseYear = movie.release_date ? movie.release_date.substring(0, 4) : ''
+
 	return (
 		<StyledTile>
 			<Poster>
-				<ImagePoster src={posterUrl} alt='' $isCustom={posterUrl === customPoster}></ImagePoster>
+				<LinkImage to={`/movies/${movie.id}`}>
+					<ImagePoster src={posterUrl} alt='' $isCustom={posterUrl === customPoster}></ImagePoster>
+				</LinkImage>
 			</Poster>
 			<TileContent>
 				<Description>
-				<LinkElement to={`/movies/${movie.id}`}>
-					<TileTitle>{movie.title}</TileTitle>
-				</LinkElement>
-        <Year>{releaseYear}</Year>
-				<Genres genre_ids={movie.genre_ids} genres={genres} />
+					<LinkElement to={`/movies/${movie.id}`}>
+						<TileTitle>{movie.title}</TileTitle>
+					</LinkElement>
+					<Year>{releaseYear}</Year>
+					<Genres genre_ids={movie.genre_ids} genres={genres} />
 				</Description>
 				<Rating>
 					<StarImage src={star} alt=''></StarImage>

@@ -5,6 +5,12 @@ export const LinkElement = styled(Link)`
 	text-decoration: none;
 	color: ${({ theme }) => theme.color.black};
 `
+
+export const LinkImage = styled(Link)`
+	top: 2px;
+	position: relative;
+`
+
 export const StyledTile = styled.article`
 	background: ${({ theme }) => theme.color.white};
 	box-shadow: 0px 4px 12px 0px #bac7d580;
@@ -53,11 +59,10 @@ export const TileContent = styled.div`
 	padding-left: 16px;
 
 	@media (min-width: 768px) {
-    padding: 0;
-	
-	height: 184px;
-    
-  }
+		padding: 0;
+
+		height: 184px;
+	}
 `
 export const TileTitle = styled.header`
 	font-weight: 500;
@@ -70,7 +75,7 @@ export const TileTitle = styled.header`
 	@media (min-width: 768px) {
 		font-size: 22px;
 		padding-top: 16px;
-        max-height: 68px;
+		max-height: 68px;
 	}
 `
 
@@ -79,7 +84,7 @@ export const Year = styled.div`
 	position: relative;
 	font-size: 13px;
 	font-weight: 400;
-    padding-top: 4px;
+	padding-top: 4px;
 
 	@media (min-width: 768px) {
 		font-size: 16px;
@@ -88,16 +93,16 @@ export const Year = styled.div`
 `
 
 export const Rating = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  align-items: flex-end;
-  margin-top: auto;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	align-items: flex-end;
+	margin-top: auto;
 
-  @media (min-width: 768px) {
-    height: 100%;
-  }
-`;
+	@media (min-width: 768px) {
+		height: 100%;
+	}
+`
 
 export const StarImage = styled.img`
 	width: 16px;

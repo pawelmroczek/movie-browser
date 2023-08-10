@@ -36,17 +36,19 @@ const MovieBanner = () => {
 					<MovieImage src={backdropUrl} />
 					<Pleksa />
 				</MovieImageWrapper>
-				<Header>
-					<Title>{original_title}</Title>
-					<Rating>
-						<StarImage src={star} alt='Star'></StarImage>
-						<RatingValues>
-							<RatingValue>{vote_average === 0 ? 0 : vote_average.toFixed(1)}</RatingValue>
-							<RatingTotal>/ 10</RatingTotal>
-						</RatingValues>
-						<RatingQty>{vote_count} votes</RatingQty>
-					</Rating>
-				</Header>
+				{backdrop_path && (
+					<Header>
+						<Title>{original_title}</Title>
+						<Rating>
+							<StarImage src={star} alt='Star'></StarImage>
+							<RatingValues>
+								<RatingValue>{vote_average === 0 ? 0 : vote_average.toFixed(1)}</RatingValue>
+								<RatingTotal>/ 10</RatingTotal>
+							</RatingValues>
+							<RatingQty>{vote_count} votes</RatingQty>
+						</Rating>
+					</Header>
+				)}
 			</ImageContainer>
 		</>
 	)

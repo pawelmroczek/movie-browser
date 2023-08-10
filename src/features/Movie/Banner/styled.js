@@ -79,7 +79,7 @@ export const Header = styled.div`
 `
 export const Rating = styled.div`
 	display: flex;
-	max-width: 125px;
+	max-width: 130px;
 	flex-wrap: wrap;
 	gap: 8px;
 

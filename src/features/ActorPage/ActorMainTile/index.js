@@ -1,24 +1,47 @@
-import poster from '../../Movie/img/actor.png'
-import { About, DateOfBirth, ImagePoster, LabelText, PlaceOfBirth, Poster, StyledTileActor, TileContent, TileTitle } from './styled';
+import { useEffect } from 'react';
+import poster from "../../Movie/img/actorsvg.svg"
+import { DateOfBirth, Description, Details, Image, ImageContainer, Name, PlaceOfBirth, TileWrapper, Title } from './styled';
+import { useState } from 'react';
 const ActorMainTile = () => {
+    const [isWideScreen, setIsWideScreen] = useState(window.innerWidth > 768)
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsWideScreen(window.innerWidth > 768)
+        }
+
+        window.addEventListener('resize', handleResize)
+
+        return () => {
+            window.removeEventListener('resize', handleResize)
+        }
+    }, [])
     return (
         <>
-            <StyledTileActor>
-                <Poster>
-                    <ImagePoster src={poster} alt=''></ImagePoster>
-                </Poster>
-                <TileContent>
-                    <TileTitle>Liu Yifei</TileTitle>
+            <TileWrapper>
+                <ImageContainer>
+                    <Image src={poster} alt=''></Image>
+                </ImageContainer>
+                <Details>
+                    <Title>Liu Yifei</Title>
                     <DateOfBirth>
-                        <LabelText>Birth</LabelText>
-                         25.08.1987
+                        <Name>Birth</Name>
+                        25.08.1987
                     </DateOfBirth>
                     <PlaceOfBirth>
-                        <LabelText>Place of birth:</LabelText>
-                         Wuhan, Hubei, China</PlaceOfBirth>
-                </TileContent>
-                <About>Liu Yifei was born in Wuhan, Hubei, Province of China on August 25th, 1987. She began modeling at the age of 8 and was trained in singing, dancing and the piano. Moving to the United States at 10 with her mother, Liu lived there for four years.</About>
-            </StyledTileActor>
+                        <Name>Place of birth:</Name>
+                        Wuhan, Hubei, China</PlaceOfBirth>
+                    {isWideScreen && (
+                        <Description>
+                            Liu Yifei was born in Wuhan, Hubei, Province of China on August 25th, 1987. She began modeling at the age of 8 and was trained in singing, dancing and the piano. Moving to the United States at 10 with her mother, Liu lived there for four years.</Description>
+                    )}
+                </Details>
+                {!isWideScreen && (
+                    <Description>
+                        Liu Yifei was born in Wuhan, Hubei, Province of China on August 25th, 1987. She began modeling at the age of 8 and was trained in singing, dancing and the piano. Moving to the United States at 10 with her mother, Liu lived there for four years.
+                    </Description>
+                )}
+            </TileWrapper>
         </>
     )
 }

@@ -27,9 +27,11 @@ export const ImageContainer = styled.div`
 
 export const Image = styled.img`
 	max-width: 114px;
+	border-radius: 5px;
 
 	@media (min-width: 768px) {
-		max-width: 250px;
+		max-width: 312px;
+		max-height: 464px;
 	}
 
 	@media (min-width: 992px) {
@@ -46,15 +48,17 @@ export const Title = styled.span`
 		font-size: 36px;
 		font-weight: 600;
 		margin: 0 0 24px;
+		word-break: break-word;
+		line-height: 1.1;
 	}
 `
 
 export const Name = styled.span`
 	display: none;
-
 	@media (min-width: 768px) {
 		display: block;
 		color: #74788b;
+		width: 100px;
 	}
 `
 
@@ -136,6 +140,8 @@ export const ImageStar = styled.img`
 export const RatingValue = styled.div`
 	font-size: 13px;
 	font-weight: 600;
+	position: relative;
+	top: 5px;
 
 	@media (min-width: 768px) {
 		font-size: 22px;

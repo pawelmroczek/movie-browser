@@ -1,5 +1,5 @@
 import React from 'react'
-import { PersonPicture, PersonPoster, PersonTitle, StyledActorTile } from './styled'
+import { PersonPicture, PersonPoster, PersonTitle, StyledActorTile, LinkElement } from './styled'
 import customPoster from '../images/Profile.svg'
 
 export const ActorTile = ({ people }) => {
@@ -14,7 +14,9 @@ export const ActorTile = ({ people }) => {
 			<PersonPicture>
 				<PersonPoster src={posterUrl} alt='' $isCustom={posterUrl === customPoster} />
 			</PersonPicture>
-			<PersonTitle>{people.name}</PersonTitle>
+			<LinkElement to={`/person/${people.id}`}>
+				<PersonTitle>{people.name}</PersonTitle>
+			</LinkElement>
 		</StyledActorTile>
 	)
 }

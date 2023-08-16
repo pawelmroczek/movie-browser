@@ -7,6 +7,11 @@ export const Wrapper = styled.div`
 	}
 `
 
+export const PersonPosterWrapper = styled.div`
+	height: 178px;
+    background: #C4C4C4;
+`
+
 export const StyledActorTile = styled.article`
 	padding: 8px;
 	background-color: #fff;
@@ -19,6 +24,9 @@ export const StyledActorTile = styled.article`
 `
 
 export const PersonPoster = styled.img`
+	width: ${({ $isCustom }) => ($isCustom ? '45.45px' : '100%')};
+	height: ${({ $isCustom }) => ($isCustom ? '57.67px' : '100%')};
+	background: ${({ theme }) => theme.color.silver};
 	width: 120px;
 	max-height: 178px;
 	border-radius: 5px;

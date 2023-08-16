@@ -1,16 +1,14 @@
 import { useLocation } from "react-router-dom/cjs/react-router-dom";
-import {
-  useQueryParameter,
-  useReplaceQueryParameter,
-} from "../../../queryParameters";
+import { useDelete, useQueryParameter } from "../../../queryParameters";
 import { useEffect, useState } from "react";
 import searchQueryParamName from "../../../searchQueryParamName";
-import { usePrevious } from "./usePrevious";
+import paginationParamName from "../../../paginationParamName";
 
 export const useSearchInput = () => {
   const location = useLocation();
   const isMoviesPage = location.pathname === "/movies";
-  const replaceQueryParameter = useReplaceQueryParameter();
+
+  const deleteParam = useDelete(paginationParamName, searchQueryParamName);
 
   const [newInputValue, setNewInputValue] = useState(
     useQueryParameter(searchQueryParamName) || ""
@@ -24,26 +22,22 @@ export const useSearchInput = () => {
     }
   };
 
-  const previousInputValue = usePrevious(newInputValue);
-  const [initialized, setInitialized] = useState(false);
-
   useEffect(() => {
-    if (!initialized) {
-      setInitialized(true);
-      return;
-    }
-
     const timeoutId = setTimeout(() => {
-      if (newInputValue !== previousInputValue) {
-        replaceQueryParameter({
-          key: searchQueryParamName,
-          value: newInputValue.trim() !== "" ? newInputValue : undefined,
-        });
-      }
+      deleteParam({
+        key: searchQueryParamName,
+        value: newInputValue.trim() !== "" ? newInputValue : null,
+      });
     }, 500);
 
     return () => clearTimeout(timeoutId);
-  }, [newInputValue, previousInputValue, replaceQueryParameter, initialized]);
+  }, [newInputValue, deleteParam]);
 
-  return { newInputValue, onInputChange, isMoviesPage };
+  return {
+    newInputValue,
+    onInputChange,
+    isMoviesPage,
+    setNewInputValue,
+    deleteParam,
+  };
 };

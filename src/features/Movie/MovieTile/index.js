@@ -17,11 +17,14 @@ import {
 	VotesQty,
 	Description,
 } from './styled'
-import moviephoto from '../img/poster.png'
 import star from '../../../common/images/Vector.svg'
+import useMovie from './useMovie'
+import { useParams } from 'react-router-dom'
 
 const MovieTile = () => {
 	const [isWideScreen, setIsWideScreen] = useState(window.innerWidth > 768)
+	const { id } = useParams()
+	const movieId = id
 
 	useEffect(() => {
 		const handleResize = () => {
@@ -35,47 +38,49 @@ const MovieTile = () => {
 		}
 	}, [])
 
+	const movieData = useMovie(movieId)
+
+	if (!movieData) {
+		return <div>Loading...</div>
+	}
+
+	const { title, overview, release_date, vote_average, vote_count, poster_path, genres, production_countries } =
+		movieData
+
+	const posterUrl = `https://image.tmdb.org/t/p/original${poster_path}`
+
 	return (
 		<TileWrapper>
 			<ImageContainer>
-				<Image src={moviephoto} alt='movie' />
+				<Image src={posterUrl} alt='movie' />
 			</ImageContainer>
 			<Details>
-				<Title>Mulan</Title>
-				<Year>2020</Year>
+				<Title>{title}</Title>
+				<Year></Year>
 				<Production>
-					<Name>Production:</Name> China, USA
+					<Name>Production:</Name>
+					{production_countries.map(country => country.name).join(', ')}
 				</Production>
 				<Production>
-					<Name>Release date:</Name> 24.10.2020
+					<Name>Release date:</Name>
+					{release_date}
 				</Production>
 				<Genres>
-					<Genre>Action</Genre>
-					<Genre>Drama</Genre>
-					<Genre>Adventure</Genre>
+					{genres.map(genre => (
+						<Genre key={genre.id}>{genre.name}</Genre>
+					))}
 				</Genres>
 				<RatingWrapper>
 					<ImageStar src={star} alt='star' />
 					<RatingValue>
-						7,8<TotalValue>/10</TotalValue>
+						{vote_average === 0 ? 0 : vote_average.toFixed(1)}
+						<TotalValue>/10 {vote_count} votes</TotalValue>
 					</RatingValue>
-					<VotesQty>35 votes</VotesQty>
+					<VotesQty></VotesQty>
 				</RatingWrapper>
-				{isWideScreen && (
-					<Description>
-						A young Chinese maiden disguises herself as a male warrior in order to save her father. Disguises herself as
-						a male warrior in order to save her father. A young Chinese maiden disguises herself as a male warrior in
-						order to save her father.
-					</Description>
-				)}
+				{isWideScreen && <Description>{overview}</Description>}
 			</Details>
-			{!isWideScreen && (
-				<Description>
-					A young Chinese maiden disguises herself as a male warrior in order to save her father. Disguises herself as a
-					male warrior in order to save her father. A young Chinese maiden disguises herself as a male warrior in order
-					to save her father.
-				</Description>
-			)}
+			{!isWideScreen && <Description>{overview}</Description>}
 		</TileWrapper>
 	)
 }

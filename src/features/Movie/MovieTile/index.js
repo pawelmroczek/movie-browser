@@ -56,7 +56,7 @@ const MovieTile = () => {
 			</ImageContainer>
 			<Details>
 				<Title>{title}</Title>
-				<Year></Year>
+				<Year>{release_date ? release_date.substring(0, 4) : ''}</Year>
 				<Production>
 					<Name>Production:</Name>
 					{production_countries.map(country => country.name).join(', ')}
@@ -74,7 +74,9 @@ const MovieTile = () => {
 					<ImageStar src={star} alt='star' />
 					<RatingValue>
 						{vote_average === 0 ? 0 : vote_average.toFixed(1)}
-						<TotalValue>/10 <span>{vote_count} votes</span></TotalValue>
+						<TotalValue>
+							/10 <span>{vote_count} votes</span>
+						</TotalValue>
 					</RatingValue>
 					<VotesQty></VotesQty>
 				</RatingWrapper>

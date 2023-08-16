@@ -15,7 +15,6 @@ export const PersonPosterWrapper = styled.div`
 export const StyledActorTile = styled.article`
 	padding: 8px;
 	background-color: #fff;
-	border-radius: 5px;
 	box-shadow: 0px 4px 12px 0px rgba(186, 199, 213, 0.5);
 
 	@media (min-width: 768px) {
@@ -44,6 +43,10 @@ export const PersonTitle = styled.header`
 	font-weight: 500;
 	line-height: 130%;
 	padding: 8px 0;
+
+	@media (min-width: 768px) {
+		font-size: 22px;
+	}
 `
 
 export const Character = styled.span`
@@ -54,6 +57,10 @@ export const Character = styled.span`
 	line-height: 130%;
 	width: 100%;
 	display: block;
+
+	@media (min-width: 768px) {
+		font-size: 18px;
+	}
 `
 
 export const Header = styled.span`

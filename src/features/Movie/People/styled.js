@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
 
 export const PersonPosterWrapper = styled.div`
 	height: 178px;
-    background: #C4C4C4;
+	background: ${({ theme }) => theme.color.silver};
 `
 
 export const StyledActorTile = styled.article`

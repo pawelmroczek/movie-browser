@@ -74,7 +74,7 @@ const MovieTile = () => {
 					<ImageStar src={star} alt='star' />
 					<RatingValue>
 						{vote_average === 0 ? 0 : vote_average.toFixed(1)}
-						<TotalValue>/10 {vote_count} votes</TotalValue>
+						<TotalValue>/10 <span>{vote_count} votes</span></TotalValue>
 					</RatingValue>
 					<VotesQty></VotesQty>
 				</RatingWrapper>

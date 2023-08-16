@@ -58,7 +58,7 @@ export const Name = styled.span`
 	@media (min-width: 768px) {
 		display: block;
 		color: #74788b;
-		width: 100px;
+		width: 125px;
 	}
 `
 
@@ -154,9 +154,10 @@ export const TotalValue = styled.span`
 	display: none;
 
 	@media (min-width: 768px) {
-		display: block;
 		font-size: 14px;
 		margin: 0 0 0 4px;
+		display: flex;
+		gap: 12px;
 	}
 `
 

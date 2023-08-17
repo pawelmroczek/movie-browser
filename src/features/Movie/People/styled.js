@@ -7,10 +7,14 @@ export const Wrapper = styled.div`
 	}
 `
 
+export const PersonPosterWrapper = styled.div`
+	height: 178px;
+	background: ${({ theme }) => theme.color.silver};
+`
+
 export const StyledActorTile = styled.article`
 	padding: 8px;
 	background-color: #fff;
-	border-radius: 5px;
 	box-shadow: 0px 4px 12px 0px rgba(186, 199, 213, 0.5);
 
 	@media (min-width: 768px) {
@@ -20,7 +24,7 @@ export const StyledActorTile = styled.article`
 
 export const PersonPoster = styled.img`
 	width: ${({ $isCustom }) => ($isCustom ? '45.45px' : '100%')};
-	height: ${({ $isCustom }) => ($isCustom ? '57.67px' : '100%')};    
+	height: ${({ $isCustom }) => ($isCustom ? '57.67px' : '100%')};
 	background: ${({ theme }) => theme.color.silver};
 	width: 120px;
 	max-height: 178px;
@@ -39,6 +43,10 @@ export const PersonTitle = styled.header`
 	font-weight: 500;
 	line-height: 130%;
 	padding: 8px 0;
+
+	@media (min-width: 768px) {
+		font-size: 22px;
+	}
 `
 
 export const Character = styled.span`
@@ -49,6 +57,10 @@ export const Character = styled.span`
 	line-height: 130%;
 	width: 100%;
 	display: block;
+
+	@media (min-width: 768px) {
+		font-size: 18px;
+	}
 `
 
 export const Header = styled.span`

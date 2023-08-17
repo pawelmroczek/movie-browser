@@ -27,6 +27,7 @@ export const ImageContainer = styled.div`
 
 export const Image = styled.img`
 	max-width: 114px;
+	border-radius: 5px;
 
 	@media (min-width: 768px) {
 		max-width: 312px;
@@ -47,6 +48,8 @@ export const Title = styled.span`
 		font-size: 36px;
 		font-weight: 600;
 		margin: 0 0 24px;
+		word-break: break-word;
+		line-height: 1.1;
 	}
 `
 
@@ -55,6 +58,7 @@ export const Name = styled.span`
 	@media (min-width: 768px) {
 		display: block;
 		color: #74788b;
+		width: 125px;
 	}
 `
 
@@ -114,6 +118,7 @@ export const Genre = styled.span`
 
 	@media (min-width: 768px) {
 		padding: 8px 16px;
+		font-size: 14px;
 	}
 `
 
@@ -136,6 +141,8 @@ export const ImageStar = styled.img`
 export const RatingValue = styled.div`
 	font-size: 13px;
 	font-weight: 600;
+	position: relative;
+	top: 5px;
 
 	@media (min-width: 768px) {
 		font-size: 22px;
@@ -148,9 +155,10 @@ export const TotalValue = styled.span`
 	display: none;
 
 	@media (min-width: 768px) {
-		display: block;
 		font-size: 14px;
 		margin: 0 0 0 4px;
+		display: flex;
+		gap: 12px;
 	}
 `
 

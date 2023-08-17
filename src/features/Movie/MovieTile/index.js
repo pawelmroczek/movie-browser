@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 import {
 	TileWrapper,
 	Details,
@@ -17,14 +17,14 @@ import {
 	VotesQty,
 	Description,
 } from './styled'
-import star from '../../../common/images/Vector.svg';
-import useMovie from './useMovie';
-import { useParams } from 'react-router-dom';
+import star from '../../../common/images/Vector.svg'
+import useMovie from './useMovie'
+import { useParams } from 'react-router-dom'
 
 const MovieTile = () => {
 	const [isWideScreen, setIsWideScreen] = useState(window.innerWidth > 768)
-	const { id } = useParams();
-	const movieId = id;
+	const { id } = useParams()
+	const movieId = id
 
 	useEffect(() => {
 		const handleResize = () => {
@@ -38,22 +38,14 @@ const MovieTile = () => {
 		}
 	}, [])
 
-	const movieData = useMovie(movieId);
+	const movieData = useMovie(movieId)
 
 	if (!movieData) {
-		return <div>Loading...</div>;
+		return <div>Loading...</div>
 	}
-	
-	const {
-		title,
-		overview,
-		release_date,
-		vote_average,
-		vote_count,
-		poster_path,
-		genres,
-		production_countries
-	} = movieData;
+
+	const { title, overview, release_date, vote_average, vote_count, poster_path, genres, production_countries } =
+		movieData
 
 	const posterUrl = `https://image.tmdb.org/t/p/original${poster_path}`
 
@@ -64,23 +56,27 @@ const MovieTile = () => {
 			</ImageContainer>
 			<Details>
 				<Title>{title}</Title>
-				<Year></Year>
+				<Year>{release_date ? release_date.substring(0, 4) : ''}</Year>
 				<Production>
-					<Name>Production:</Name> 
-					{production_countries.map(country => country.name).join(", ")}
+					<Name>Production:</Name>
+					{production_countries.map(country => country.name).join(', ')}
 				</Production>
 				<Production>
-					<Name>Release date:</Name>{release_date}
+					<Name>Release date:</Name>
+					{release_date}
 				</Production>
 				<Genres>
-					{genres.map((genre) => (
+					{genres.map(genre => (
 						<Genre key={genre.id}>{genre.name}</Genre>
 					))}
 				</Genres>
 				<RatingWrapper>
 					<ImageStar src={star} alt='star' />
 					<RatingValue>
-						{vote_average}<TotalValue>{vote_count}</TotalValue>
+						{vote_average === 0 ? 0 : vote_average.toFixed(1)}
+						<TotalValue>
+							/10 <span>{vote_count} votes</span>
+						</TotalValue>
 					</RatingValue>
 					<VotesQty></VotesQty>
 				</RatingWrapper>
@@ -91,4 +87,4 @@ const MovieTile = () => {
 	)
 }
 
-export default MovieTile;
+export default MovieTile

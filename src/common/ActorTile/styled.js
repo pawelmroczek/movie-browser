@@ -70,3 +70,4 @@ export const PersonTitle = styled.header`
 		padding-top: 12px;
 	}
 `
+

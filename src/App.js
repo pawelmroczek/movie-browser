@@ -1,11 +1,11 @@
 import React from 'react'
 import { Navigation } from './common/Navigation'
-
 import Movie from './features/Movie'
 import Movies from './features/Movies'
 import { HashRouter, Redirect, Route, Switch } from 'react-router-dom/cjs/react-router-dom'
 import { People } from './features/People'
-import { toMovie, toMovies, toPeople } from './routes'
+import { toActorPage, toMovie, toMovies, toPeople } from './routes'
+import ActorPage from './features/ActorPage/index'
 
 function App() {
 	return (
@@ -20,6 +20,9 @@ function App() {
 				</Route>
 				<Route path={toPeople()}>
 					<People />
+				</Route>
+				<Route path={toActorPage()}>
+					<ActorPage />
 				</Route>
 				<Route path='/'>
 					<Redirect to={toMovies()} />

@@ -50,7 +50,7 @@ const Movie = () => {
 		case 'loading':
 			return (
 				<Container>
-					<Title>Search results for "{query}"</Title>
+					<Title>Loading...</Title>
 				</Container>
 			)
 		case 'error':

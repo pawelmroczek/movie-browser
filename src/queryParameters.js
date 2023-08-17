@@ -32,6 +32,7 @@ export const useReplacePageParameter = (test) => {
 
 export const useDelete = (toDelete, test) => {
   const location = useLocation();
+  const start = location.pathname.startsWith("/movies") ? "/movies" : "/people";
   const history = useHistory();
   const query = useQueryParameter(test);
   return ({ key, value }) => {
@@ -43,7 +44,8 @@ export const useDelete = (toDelete, test) => {
     }
     searchParams.delete(toDelete);
     if (query !== value) {
-      history.push(`${location.pathname}?${searchParams.toString()}`);
+      history.push(`${start}?${searchParams.toString()}`);
     }
+    
   };
 };

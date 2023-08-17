@@ -36,12 +36,15 @@ const ActorMainTile = () => {
 		return <div>Loading...</div>
 	}
 
-	const { birthday, biography, name, place_of_birth } = actorData
+	const { birthday, biography, name, place_of_birth, profile_path } = actorData
+
+	const posterUrl = profile_path ? `https://image.tmdb.org/t/p/w500/${profile_path}` : poster
+
 	return (
 		<>
 			<TileWrapper>
 				<ImageContainer>
-					<Image src={poster} alt=''></Image>
+					<Image src={posterUrl} alt=''></Image>
 				</ImageContainer>
 				<Details>
 					<Title>{name}</Title>
@@ -55,13 +58,7 @@ const ActorMainTile = () => {
 					</PlaceOfBirth>
 					{isWideScreen && <Description>{biography}</Description>}
 				</Details>
-				{!isWideScreen && (
-					<Description>
-						Liu Yifei was born in Wuhan, Hubei, Province of China on August 25th, 1987. She began modeling at the age of
-						8 and was trained in singing, dancing and the piano. Moving to the United States at 10 with her mother, Liu
-						lived there for four years.
-					</Description>
-				)}
+				{!isWideScreen && <Description>{biography}</Description>}
 			</TileWrapper>
 		</>
 	)

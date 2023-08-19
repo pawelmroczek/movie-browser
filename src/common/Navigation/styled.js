@@ -43,6 +43,11 @@ export const StyledNavLink = styled(NavLink)`
   }
 `;
 
+export const StyledLink = styled(NavLink)`
+  text-decoration: none;
+  color: ${({ theme }) => theme.color.white};
+`;
+
 export const Logo = styled.div`
   font-size: 24px;
   font-weight: 500;

@@ -20,7 +20,7 @@ export const Navigation = () => (
       <Container>
         <StyledLink to="/">
           <Logo>
-            <ImageLogo src={video} alt="" />
+            <ImageLogo src={video} alt="logoImg" />
             Movies Browser
           </Logo>
         </StyledLink>

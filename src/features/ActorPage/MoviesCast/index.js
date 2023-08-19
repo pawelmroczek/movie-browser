@@ -44,7 +44,9 @@ const MovieCast = () => {
 										{castMember.original_title} ({castMember.release_date ? castMember.release_date.slice(0, 4) : '-'})
 									</Year>
 									<Tags>
-										<Tag></Tag>
+										<Tag>Action</Tag>
+										<Tag>Adventure</Tag>
+										<Tag>Drama</Tag>
 									</Tags>
 									<Rating>
 										<StarImage src={star} alt=''></StarImage>

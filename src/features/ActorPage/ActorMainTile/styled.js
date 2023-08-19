@@ -77,6 +77,7 @@ export const Name = styled.span`
 	@media (min-width: 768px) {
 		display: block;
 		color: #74788b;
+		margin-right: 10px;
 	}
 `
 

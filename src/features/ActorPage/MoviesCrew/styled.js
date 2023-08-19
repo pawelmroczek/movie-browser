@@ -2,20 +2,22 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 
 export const Container = styled.div`
-	margin: 0 auto 20px;
-	width: 100%;
-	max-width: 1368px;
+	max-width: 1408px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+`
+export const Movies = styled.div`
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-gap: 16px;
+	justify-content: center;
 
 	@media (min-width: 768px) {
-		margin: 0 auto 64px;
-		display: grid;
 		grid-template-columns: repeat(auto-fill, 324px);
 		grid-gap: 24px;
 	}
-`
-export const Movies = styled.div`
-	margin-bottom: 16px;
-	
 `
 export const Header = styled.span`
 	font-size: 20px;
@@ -61,8 +63,8 @@ export const Poster = styled.div`
 `
 
 export const ImagePoster = styled.img`
-	width: ${({ $isCustom }) => ($isCustom ? '45px' : '114px')};
-	height: ${({ $isCustom }) => ($isCustom ? '45px' : '169px')};
+	width: ${({ $isCustom }) => ($isCustom ? '37px' : '114px')};
+	height: ${({ $isCustom }) => ($isCustom ? '27.78px' : '169px')};
 	border-radius: 5px;
 
 	@media (min-width: 768px) {

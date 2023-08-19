@@ -9,7 +9,7 @@ import {
 	Votes,
 	Year,
 } from '../../../common/Tile/styled'
-import poster from '../../../common/images/poster.png'
+import customPoster from '../../../common/images/Video.svg'
 import star from '../../../common/images/Vector.svg'
 import { Container, Header, Movies, Rating, Tag, Tags, TileContent } from './styled'
 import { Wrapper } from '../../Movie/People/styled'
@@ -31,8 +31,9 @@ const MovieCrew = () => {
 							<StyledTile key={index}>
 								<Poster>
 									<ImagePoster
+									$isCustom={crewMember.poster_path ? false : true}
 										src={
-											crewMember.poster_path ? `https://image.tmdb.org/t/p/original${crewMember.poster_path}` : poster
+											crewMember.poster_path ? `https://image.tmdb.org/t/p/original${crewMember.poster_path}` : customPoster
 										}
 										alt={crewMember.title}></ImagePoster>
 								</Poster>

@@ -9,18 +9,18 @@ import {
 	Votes,
 	Year,
 } from '../../../common/Tile/styled'
-import poster from '../../../common/images/poster.png'
+import customPoster from '../../../common/images/Video.svg'
 import star from '../../../common/images/Vector.svg'
 import { Container, Header, Movies, Rating, Tag, Tags, TileContent } from './styled'
 import { Wrapper } from '../../Movie/People/styled'
 import { useParams } from 'react-router-dom'
-import useCast from './useCast'
+import useCast from './useCast';
 
 const MovieCast = () => {
 	const { id } = useParams()
 	const actorId = id
 	const castData = useCast(actorId)
-
+	
 	return (
 		<Wrapper>
 			<Header> Movies - cast ({castData ? castData.length : 0})</Header>
@@ -31,8 +31,9 @@ const MovieCast = () => {
 							<StyledTile key={index}>
 								<Poster>
 									<ImagePoster
+										$isCustom={castMember.poster_path ? false : true}
 										src={
-											castMember.poster_path ? `https://image.tmdb.org/t/p/original${castMember.poster_path}` : poster
+											castMember.poster_path ? `https://image.tmdb.org/t/p/original${castMember.poster_path}` : customPoster
 										}
 										alt={castMember.title}></ImagePoster>
 								</Poster>

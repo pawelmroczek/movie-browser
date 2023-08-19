@@ -41,7 +41,7 @@ const MovieCast = () => {
 										<TileTitle>{castMember.title}</TileTitle>
 									</LinkElement>
 									<Year>
-										{castMember.original_title} ({castMember.release_date ? castMember.release_date.slice(0, 4) : '-'})
+										{castMember.character} ({castMember.release_date ? castMember.release_date.slice(0, 4) : '-'})
 									</Year>
 									<Tags>
 										<Tag>Action</Tag>

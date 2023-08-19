@@ -8,6 +8,7 @@ import {
   StyledUl,
   Wrapper,
   Container,
+  StyledLink,
 } from "./styled";
 import video from "../images/Video.svg";
 import Input from "./Input";
@@ -17,10 +18,12 @@ export const Navigation = () => (
   <StyledNav>
     <Wrapper>
       <Container>
-        <Logo>
-          <ImageLogo src={video} alt="" />
-          Movies Browser
-        </Logo>
+        <StyledLink to="/">
+          <Logo>
+            <ImageLogo src={video} alt="logoImg" />
+            Movies Browser
+          </Logo>
+        </StyledLink>
         <StyledUl>
           <StyledLi>
             <StyledNavLink to={toMovies()}>MOVIES</StyledNavLink>

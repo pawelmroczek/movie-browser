@@ -41,7 +41,7 @@ const MovieCrew = () => {
 										<TileTitle>{crewMember.title}</TileTitle>
 									</LinkElement>
 									<Year>
-										{crewMember.original_title} ({crewMember.release_date ? crewMember.release_date.slice(0, 4) : '-'})
+										{crewMember.character} ({crewMember.release_date ? crewMember.release_date.slice(0, 4) : '-'})
 									</Year>
 									<Tags>
 										<Tag>Action</Tag>

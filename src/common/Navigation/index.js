@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Logo,
   ImageLogo,
@@ -13,6 +13,7 @@ import video from "../images/Video.svg";
 import Input from "./Input";
 import { toMovies, toPeople } from "../../routes";
 import { useSearchInput } from "./Input/useSearchInput";
+import { useLocation } from "react-router-dom/cjs/react-router-dom";
 
 export const Navigation = () => {
   const { newInputValue, onInputChange, isMoviesPage, setNewInputValue } =
@@ -21,6 +22,14 @@ export const Navigation = () => {
   const resetInputValue = () => {
     setNewInputValue("");
   };
+
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname !== "/movies" &&location.pathname !== "/people") {
+      setNewInputValue("");
+    }
+  }, [location.pathname]);
 
   return (
     <StyledNav>

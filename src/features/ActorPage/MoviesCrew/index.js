@@ -9,7 +9,7 @@ import {
 	Votes,
 	Year,
 } from '../../../common/Tile/styled'
-import poster from '../../../common/images/poster.png'
+import customPoster from '../../../common/images/Video.svg'
 import star from '../../../common/images/Vector.svg'
 import { Container, Header, Movies, Rating, Tag, Tags, TileContent } from './styled'
 import { Wrapper } from '../../Movie/People/styled'
@@ -30,18 +30,21 @@ const MovieCrew = () => {
 						crewData.map((crewMember, index) => (
 							<StyledTile key={index}>
 								<Poster>
-									<ImagePoster
-										src={
-											crewMember.poster_path ? `https://image.tmdb.org/t/p/original${crewMember.poster_path}` : poster
-										}
-										alt={crewMember.title}></ImagePoster>
+									<LinkElement to={`/movies/${crewMember.id}`}>
+										<ImagePoster
+											$isCustom={crewMember.poster_path ? false : true}
+											src={
+												crewMember.poster_path ? `https://image.tmdb.org/t/p/original${crewMember.poster_path}` : customPoster
+											}
+											alt={crewMember.title}></ImagePoster>
+									</LinkElement>
 								</Poster>
 								<TileContent>
-									<LinkElement>
+									<LinkElement to={`/movies/${crewMember.id}`}>
 										<TileTitle>{crewMember.title}</TileTitle>
 									</LinkElement>
 									<Year>
-										{crewMember.original_title} ({crewMember.release_date ? crewMember.release_date.slice(0, 4) : '-'})
+										({crewMember.release_date ? crewMember.release_date.slice(0, 4) : '-'})
 									</Year>
 									<Tags>
 										<Tag>Action</Tag>

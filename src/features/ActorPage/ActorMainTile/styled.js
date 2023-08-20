@@ -27,7 +27,7 @@ export const TileWrapper = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 
-	@media (min-width: 768px) {
+	@media (min-width: 992px) {
 		padding: 40px;
 		margin: 0 auto 64px;
 		display: grid;
@@ -41,9 +41,9 @@ export const ImageContainer = styled.div`
     height: 163px;
 
 	@media (min-width: 768px) {
-		margin: 0 40px 0 0;
-        width: 399px;
-        height: 564px;
+		margin: 0 40px 0px 0;
+        width: 116px;
+    	height: 163px;
 	}
 
     @media (min-width: 992px) {
@@ -77,6 +77,7 @@ export const Name = styled.span`
 	@media (min-width: 768px) {
 		display: block;
 		color: #74788b;
+		margin-right: 10px;
 	}
 `
 
@@ -97,9 +98,10 @@ export const Details = styled.div`
 	max-width: 125px;
 	height: fit-content;
 	line-height: 130%;
-
+	
 	@media (min-width: 768px) {
 		max-width: unset;
+		margin-top: 16px;
 	}
 `
 
@@ -118,6 +120,9 @@ export const Description = styled.div`
 	font-size: 14px;
 	line-height: 160%;
 	margin: 16px 0 0;
+	text-align: justify;
+  	text-justify: inter-word;
+
 
 	@media (min-width: 768px) {
 		font-size: 20px;

@@ -9,12 +9,12 @@ import {
 	Votes,
 	Year,
 } from '../../../common/Tile/styled'
-import poster from '../../../common/images/poster.png'
+import customPoster from '../../../common/images/Video.svg'
 import star from '../../../common/images/Vector.svg'
 import { Container, Header, Movies, Rating, Tag, Tags, TileContent } from './styled'
 import { Wrapper } from '../../Movie/People/styled'
 import { useParams } from 'react-router-dom'
-import useCast from './useCast'
+import useCast from './useCast';
 
 const MovieCast = () => {
 	const { id } = useParams()
@@ -27,21 +27,25 @@ const MovieCast = () => {
 			<Container>
 				<Movies>
 					{castData &&
-						castData.map((castMember, index) => (
-							<StyledTile key={index}>
+						castData.map((castMember) => (
+							<StyledTile key={castMember.id}>
 								<Poster>
-									<ImagePoster
-										src={
-											castMember.poster_path ? `https://image.tmdb.org/t/p/original${castMember.poster_path}` : poster
-										}
-										alt={castMember.title}></ImagePoster>
+									<LinkElement to={`/movies/${castMember.id}`}>
+										<ImagePoster
+											$isCustom={castMember.poster_path ? false : true}
+											src={
+												castMember.poster_path ? `https://image.tmdb.org/t/p/original${castMember.poster_path}` : customPoster
+											}
+											alt={castMember.title}
+										></ImagePoster>
+									</LinkElement>
 								</Poster>
 								<TileContent>
-									<LinkElement>
+									<LinkElement to={`/movies/${castMember.id}`}>
 										<TileTitle>{castMember.title}</TileTitle>
 									</LinkElement>
 									<Year>
-										{castMember.original_title} ({castMember.release_date ? castMember.release_date.slice(0, 4) : '-'})
+										({castMember.release_date ? castMember.release_date.slice(0, 4) : '-'})
 									</Year>
 									<Tags>
 										<Tag>Action</Tag>

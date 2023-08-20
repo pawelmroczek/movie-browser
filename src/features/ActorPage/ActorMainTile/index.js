@@ -49,7 +49,7 @@ const ActorMainTile = () => {
 				<Details>
 					<Title>{name}</Title>
 					<DateOfBirth>
-						<Name>Birth</Name>
+						<Name>Birth:</Name>
 						{birthday}
 					</DateOfBirth>
 					<PlaceOfBirth>

@@ -8,11 +8,12 @@ import useCredits from './People/useCredits';
 import { useDispatch, useSelector } from 'react-redux';
 import { useQueryParameter } from '../../queryParameters';
 import searchQueryParamName from '../../searchQueryParamName'
-import { fetchSearchResult, selectData, selectGenres, selectStatus } from '../browserSlice';
+import { fetchPopular, fetchSearchResult, selectData, selectGenres, selectStatus } from '../browserSlice';
 import { useEffect } from 'react';
 import { Container, Title } from '../../common/Container';
 import { Tile } from '../../common/Tile'
 import { Pagination } from '../../common/Pagination'
+import paginationParamName from '../../paginationParamName';
 
 const Movie = () => {
 	const { id } = useParams();
@@ -20,9 +21,20 @@ const Movie = () => {
 	const query = useQueryParameter(searchQueryParamName)
 	const dispatch = useDispatch()
 
+	const page = useQueryParameter(paginationParamName);
+
 	useEffect(() => {
-		dispatch(fetchSearchResult(query))
-	}, [query, dispatch])
+    const payload = {
+      query: query,
+      page: page || 1,
+      destination: "movie",
+    };
+    if (!query) {
+      dispatch(fetchPopular(payload));
+    } else {
+      dispatch(fetchSearchResult(payload));
+    }
+  }, [page, dispatch, query]);
 
 	const data = useSelector(selectData)
 	const status = useSelector(selectStatus)
@@ -38,7 +50,7 @@ const Movie = () => {
 		case 'loading':
 			return (
 				<Container>
-					<Title>Search results for "{query}"</Title>
+					<Title>Loading...</Title>
 				</Container>
 			)
 		case 'error':

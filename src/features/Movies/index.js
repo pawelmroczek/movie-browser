@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Container, Content, Title } from "../../common/Container";
 import { Pagination } from "../../common/Pagination";
 import { Tile } from "../../common/Tile";
-import { useQueryParameter } from "../../queryParameters";
+import { useDelete, useQueryParameter } from "../../queryParameters";
 import searchQueryParamName from "../../searchQueryParamName";
 import {
   fetchSearchResult,
@@ -22,6 +22,7 @@ const Movies = () => {
   const page = useQueryParameter(paginationParamName);
   const dispatch = useDispatch();
 
+  const deleteParam = useDelete();
   const data = useSelector(selectData);
   const status = useSelector(selectStatus);
   const genres = useSelector(selectGenres);

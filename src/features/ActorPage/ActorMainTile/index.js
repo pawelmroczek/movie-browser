@@ -65,3 +65,4 @@ const ActorMainTile = () => {
 }
 
 export default ActorMainTile
+

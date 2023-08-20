@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import {
 	LinkElement,
 	LinkImage,
@@ -19,9 +19,9 @@ import customPoster from '../images/Video.svg'
 import { Genres } from '../Genres'
 
 export const Tile = ({ movie, genres }) => {
-	if (!movie) {
-		return null
-	}
+  if (!movie) {
+    return null;
+  }
 
 	const posterUrl = movie.poster_path ? `https://image.tmdb.org/t/p/original${movie.poster_path}` : customPoster
 	const releaseYear = movie.release_date ? movie.release_date.substring(0, 4) : ''
@@ -43,7 +43,7 @@ export const Tile = ({ movie, genres }) => {
 				</Description>
 				<Rating>
 					<StarImage src={star} alt=''></StarImage>
-					<Rate>{movie.vote_average === 0 ? 0 : movie.vote_average.toFixed(1)}</Rate>
+					<Rate>{movie.vote_average ? movie.vote_average.toFixed(1) : 0}</Rate>
 					<Votes>{movie.vote_count} votes</Votes>
 				</Rating>
 			</TileContent>

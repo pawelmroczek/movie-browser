@@ -8,19 +8,45 @@ export const useQueryParameter = (searchQueryParamName) => {
   return query;
 };
 
-export const useReplaceQueryParameter = () => {
+export const useReplacePageParameter = (test) => {
   const location = useLocation();
   const history = useHistory();
 
+  const query = parseInt(useQueryParameter(test));
+  let check = query;
+  if (isNaN(query)) {
+    check = null;
+  }
   return ({ key, value }) => {
     const searchParams = new URLSearchParams(location.search);
-
-    if (value === undefined) {
+    if (value === null) {
       searchParams.delete(key);
     } else {
       searchParams.set(key, value);
     }
+    if (check !== value) {
+      history.push(`${location.pathname}?${searchParams.toString()}`);
+    }
+  };
+};
 
-    history.push(`${location.pathname}?${searchParams.toString()}`);
+export const useDelete = (toDelete, test) => {
+  const location = useLocation();
+  const start = location.pathname.startsWith("/movies") ? "/movies" : "/people";
+  const isMovie = location.pathname!=="/movies" && location.pathname.startsWith("/movies");
+  const history = useHistory();
+  const query = useQueryParameter(test);
+  return ({ key, value }) => {
+    const searchParams = new URLSearchParams(location.search);
+    if (value === null) {
+      searchParams.delete(key);
+    } else {
+      searchParams.set(key, value);
+    }
+    searchParams.delete(toDelete);
+    if (query !== value ) {
+      history.push(`${start}?${searchParams.toString()}`);
+    }
+    
   };
 };

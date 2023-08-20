@@ -17,3 +17,4 @@ const ActorPage = () => {
 }
 
 export default ActorPage
+

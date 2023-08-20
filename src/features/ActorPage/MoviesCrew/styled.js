@@ -19,6 +19,7 @@ export const Movies = styled.div`
 		grid-gap: 24px;
 	}
 `
+
 export const Header = styled.span`
 	font-size: 20px;
 	font-weight: 600;

@@ -6,6 +6,7 @@ export const LinkElement = styled(Link)`
 	color: ${({ theme }) => theme.color.black};
 `
 
+
 export const PersonContent = styled.div`
 	display: grid;
 	justify-content: center;

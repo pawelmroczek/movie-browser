@@ -27,6 +27,7 @@ export const TileWrapper = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 
+
 	@media (min-width: 992px) {
 		padding: 40px;
 		margin: 0 auto 64px;
@@ -98,6 +99,9 @@ export const Details = styled.div`
 	max-width: 125px;
 	height: fit-content;
 	line-height: 130%;
+
+	@media (min-width: 768px) {
+		max-width: unset;
 	
 	@media (min-width: 768px) {
 		max-width: unset;
@@ -121,11 +125,12 @@ export const Description = styled.div`
 	line-height: 160%;
 	margin: 16px 0 0;
 	text-align: justify;
-  	text-justify: inter-word;
+  text-justify: inter-word;
 
 
 	@media (min-width: 768px) {
 		font-size: 20px;
 		margin: 24px 0 0;
 	}
+
 `

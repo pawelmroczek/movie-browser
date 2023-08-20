@@ -23,26 +23,27 @@ const Movie = () => {
 
 	const page = useQueryParameter(paginationParamName);
 
-	useEffect(() => {
-    const payload = {
-      query: query,
-      page: page || 1,
-      destination: "movie",
-    };
-    if (!query) {
-      dispatch(fetchPopular(payload));
-    } else {
-      dispatch(fetchSearchResult(payload));
-    }
-  }, [page, dispatch, query]);
+	// useEffect(() => {
+  //   const payload = {
+  //     query: query,
+  //     page: page || 1,
+  //     destination: "movie",
+  //   };
+  //   if (!query) {
+  //     dispatch(fetchPopular(payload));
+  //   } else {
+  //     dispatch(fetchSearchResult(payload));
+  //   }
+  // }, [page, dispatch, query]);
 
 	const data = useSelector(selectData)
-	const status = useSelector(selectStatus)
+	
 	const genres = useSelector(selectGenres)
 	const movies = data.results || []
 
 	const { cast, crew } = useCredits(movieId);
-
+	const status = useSelector(selectStatus);
+	console.log(status);
 	const displayedCast = cast.slice(0, 12);
 	const displayedCrew = crew.slice(0, 6); 
 

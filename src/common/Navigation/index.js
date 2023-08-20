@@ -8,6 +8,7 @@ import {
   StyledUl,
   Wrapper,
   Container,
+  StyledLink,
 } from "./styled";
 import video from "../images/Video.svg";
 import Input from "./Input";
@@ -57,3 +58,4 @@ export const Navigation = () => {
     </StyledNav>
   );
 };
+

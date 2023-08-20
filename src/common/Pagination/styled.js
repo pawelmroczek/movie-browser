@@ -99,3 +99,4 @@ export const Number = styled.div`
     padding: 8px;
   }
 `;
+

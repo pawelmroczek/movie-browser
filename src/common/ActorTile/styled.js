@@ -2,8 +2,10 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 
 export const LinkElement = styled(Link)`
-    text-decoration: none;
-	color: ${({ theme }) => theme.color.black};`
+	text-decoration: none;
+	color: ${({ theme }) => theme.color.black};
+`
+
 
 export const PersonContent = styled.div`
 	display: grid;
@@ -31,8 +33,9 @@ export const StyledActorTile = styled.article`
 
 	@media (min-width: 768px) {
 		width: 208px;
-		height: 339px;
+		min-height: 339px;
 		padding: 16px;
+		height: unset;
 	}
 `
 export const PersonPicture = styled.div`

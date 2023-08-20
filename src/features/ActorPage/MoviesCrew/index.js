@@ -30,19 +30,21 @@ const MovieCrew = () => {
 						crewData.map((crewMember, index) => (
 							<StyledTile key={index}>
 								<Poster>
-									<ImagePoster
-									$isCustom={crewMember.poster_path ? false : true}
-										src={
-											crewMember.poster_path ? `https://image.tmdb.org/t/p/original${crewMember.poster_path}` : customPoster
-										}
-										alt={crewMember.title}></ImagePoster>
+									<LinkElement to={`/movies/${crewMember.id}`}>
+										<ImagePoster
+											$isCustom={crewMember.poster_path ? false : true}
+											src={
+												crewMember.poster_path ? `https://image.tmdb.org/t/p/original${crewMember.poster_path}` : customPoster
+											}
+											alt={crewMember.title}></ImagePoster>
+									</LinkElement>
 								</Poster>
 								<TileContent>
-									<LinkElement>
+									<LinkElement to={`/movies/${crewMember.id}`}>
 										<TileTitle>{crewMember.title}</TileTitle>
 									</LinkElement>
 									<Year>
-										{crewMember.original_title} ({crewMember.release_date ? crewMember.release_date.slice(0, 4) : '-'})
+										({crewMember.release_date ? crewMember.release_date.slice(0, 4) : '-'})
 									</Year>
 									<Tags>
 										<Tag>Action</Tag>

@@ -5,7 +5,6 @@ import {
 	StyledTile,
 	TileTitle,
 	Votes,
-	Year,
 } from '../../../common/Tile/styled';
 import customPoster from '../../../common/images/Video.svg';
 import star from '../../../common/images/Vector.svg';

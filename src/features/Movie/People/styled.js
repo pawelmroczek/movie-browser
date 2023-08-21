@@ -79,7 +79,7 @@ export const Actors = styled.div`
 	display: grid;
 	justify-content: center;
 	grid-template-columns: repeat(auto-fill, 136px);
-	grid-gap: 24px;
+	grid-gap: 16px;
 
 	@media (min-width: 768px) {
 		grid-template-columns: repeat(auto-fill, 208px);

@@ -1,11 +1,14 @@
 import { Container, StyledIcon, StyledInput } from "./styled";
 import search from "../../images/Search.svg";
 import { useRef } from "react";
+import { useLocation } from "react-router-dom/cjs/react-router-dom";
 
 const Input = ({ isMoviesPage, onInputChange, newInputValue }) => {
   const inputRef = useRef(null);
 
-  const placeholderText = isMoviesPage
+  const location = useLocation()
+
+  const placeholderText = location.pathname.startsWith("/movies")
     ? "Search for movies..."
     : "Search for people...";
 

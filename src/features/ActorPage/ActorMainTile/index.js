@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import poster from '../../Movie/img/actorsvg.svg'
+import customPoster from '../../Movie/img/Profile.svg'
 import {
 	DateOfBirth,
 	Description,
@@ -38,13 +38,13 @@ const ActorMainTile = () => {
 
 	const { birthday, biography, name, place_of_birth, profile_path } = actorData
 
-	const posterUrl = profile_path ? `https://image.tmdb.org/t/p/w500/${profile_path}` : poster
+	const posterUrl = profile_path ? `https://image.tmdb.org/t/p/w500/${profile_path}` : customPoster
 
 	return (
 		<>
 			<TileWrapper>
 				<ImageContainer>
-					<Image src={posterUrl} alt=''></Image>
+					<Image src={posterUrl} alt=''$isCustom={posterUrl === customPoster}></Image>
 				</ImageContainer>
 				<Details>
 					<Title>{name}</Title>

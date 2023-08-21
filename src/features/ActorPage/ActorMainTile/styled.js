@@ -37,9 +37,13 @@ export const TileWrapper = styled.div`
 `
 
 export const ImageContainer = styled.div`
+	background: ${({ theme }) => theme.color.silver};
 	margin: 0 16px 0 0;
     width: 116px;
     height: 163px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
 	@media (min-width: 768px) {
 		margin: 0 40px 0px 0;
@@ -55,8 +59,8 @@ export const ImageContainer = styled.div`
 
 export const Image = styled.img`
     border-radius: 5px;
-    width: 100%;
-    height: 100%;
+    width: ${({ $isCustom }) => ($isCustom ? '45.45px' : '100%')};
+	height: ${({ $isCustom }) => ($isCustom ? '57.67px' : '100%')};
     object-fit: cover;
 `
 

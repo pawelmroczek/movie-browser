@@ -50,11 +50,11 @@ const ActorMainTile = () => {
 					<Title>{name}</Title>
 					<DateOfBirth>
 						<Name>Birth:</Name>
-						{birthday}
+						{birthday ? birthday : "-"}
 					</DateOfBirth>
 					<PlaceOfBirth>
 						<Name>Place of birth:</Name>
-						{place_of_birth}
+						{place_of_birth ? place_of_birth : "-"}
 					</PlaceOfBirth>
 					{isWideScreen && <Description>{biography}</Description>}
 				</Details>

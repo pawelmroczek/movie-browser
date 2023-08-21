@@ -11,10 +11,10 @@ export const ActorTile = ({ people }) => {
 
 	return (
 		<StyledActorTile key={people.id}>
-			<PersonPicture>
-				<PersonPoster src={posterUrl} alt='' $isCustom={posterUrl === customPoster} />
-			</PersonPicture>
 			<LinkElement to={`/person/${people.id}`}>
+				<PersonPicture>
+					<PersonPoster src={posterUrl} alt='' $isCustom={posterUrl === customPoster} />
+				</PersonPicture>
 				<PersonTitle>{people.name}</PersonTitle>
 			</LinkElement>
 		</StyledActorTile>

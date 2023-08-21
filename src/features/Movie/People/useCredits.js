@@ -1,10 +1,15 @@
 import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { setStatus } from '../../browserSlice';
 
 const useCredits = (movieId) => {
     const [cast, setCast] = useState([]);
     const [crew, setCrew] = useState([]);
 
+    const dispatch = useDispatch()
+
     useEffect(() => {
+        dispatch(setStatus("loading"));
         const options = {
             method: 'GET',
             headers: {
@@ -27,6 +32,7 @@ const useCredits = (movieId) => {
                 } else {
                     setCrew([]);
                 }
+                dispatch(setStatus("success"));
             })
             .catch(err => console.error(err));
     }, [movieId]);

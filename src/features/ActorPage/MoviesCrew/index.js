@@ -1,7 +1,5 @@
 import {
-	ImagePoster,
 	LinkElement,
-	Poster,
 	Rate,
 	StarImage,
 	StyledTile,
@@ -11,7 +9,7 @@ import {
 } from '../../../common/Tile/styled';
 import customPoster from '../../../common/images/Video.svg';
 import star from '../../../common/images/Vector.svg';
-import { Container, Header, Movies, Rating, Tag, Tags, TileContent } from './styled'
+import { Container, Header, Movies, Rating, Tag, Tags, TileContent, Poster, ImagePoster } from './styled'
 import { Wrapper } from '../../Movie/People/styled';
 import { useParams } from 'react-router-dom';
 import useCrew from './useCrew';

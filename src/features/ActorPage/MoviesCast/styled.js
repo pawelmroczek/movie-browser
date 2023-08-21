@@ -104,17 +104,26 @@ export const TileTitle = styled.header`
         max-height: 68px;
 	}
 `
-
-export const Year = styled.div`
+export const StyledYear = styled.div`
 	color: ${({ theme }) => theme.color.waterloo};
 	position: relative;
 	font-size: 13px;
 	font-weight: 400;
     padding-top: 4px;
+	display: flex;
+	align-items: center;
 
 	@media (min-width: 768px) {
 		font-size: 16px;
 		padding: 8px 0 8px 0;
+	}
+`
+export const Character = styled.div`
+	display: none;
+
+	@media (min-width: 768px) {
+		margin-right: 4px;
+		display: inline;
 	}
 `
 

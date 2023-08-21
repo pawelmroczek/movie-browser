@@ -73,11 +73,11 @@ export const Title = styled.span`
 `
 
 export const Name = styled.span`
-	display: none;
+	color: #74788b;
+	margin-right: 4px;
 
 	@media (min-width: 768px) {
 		display: block;
-		color: #74788b;
 		margin-right: 10px;
 	}
 `

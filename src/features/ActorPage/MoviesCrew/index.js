@@ -5,11 +5,10 @@ import {
 	StyledTile,
 	TileTitle,
 	Votes,
-	Year,
 } from '../../../common/Tile/styled';
 import customPoster from '../../../common/images/Video.svg';
 import star from '../../../common/images/Vector.svg';
-import { Container, Header, Movies, Rating, Tag, Tags, TileContent, Poster, ImagePoster } from './styled'
+import { Container, Header, Movies, Rating, Tag, Tags, TileContent, Poster, ImagePoster, StyledYear, Character } from './styled'
 import { Wrapper } from '../../Movie/People/styled';
 import { useParams } from 'react-router-dom';
 import useCrew from './useCrew';
@@ -24,64 +23,68 @@ const MovieCrew = () => {
 
 	useEffect(() => {
 		const fetchGenres = async () => {
-		  try {
-			const genres = await getGenres();
-			setGenres(genres);
-		  } catch (error) {
-			console.error('Error fetching genres:', error);
-		  }
+			try {
+				const genres = await getGenres();
+				setGenres(genres);
+			} catch (error) {
+				console.error('Error fetching genres:', error);
+			}
 		};
-	
+
 		fetchGenres();
-	  }, []);
+	}, []);
 
 	return (
 		<Wrapper>
-		  <Header> Movies - crew ({crewData ? crewData.length : 0})</Header>
-		  <Container>
-			<Movies>
-			  {crewData &&
-				crewData.map((crewMember) => {
-				  const movieGenres = genres.filter((genre) => crewMember.genre_ids.includes(genre.id));
-	
-				  return (
-					<StyledTile key={crewMember.id}>
-					  <Poster>
-						<LinkElement to={`/movies/${crewMember.id}`}>
-						  <ImagePoster
-							$isCustom={crewMember.poster_path ? false : true}
-							src={
-							  crewMember.poster_path
-								? `https://image.tmdb.org/t/p/original${crewMember.poster_path}`
-								: customPoster
-							}
-							alt={crewMember.title}
-						  ></ImagePoster>
-						</LinkElement>
-					  </Poster>
-					  <TileContent>
-						<LinkElement to={`/movies/${crewMember.id}`}>
-						  <TileTitle>{crewMember.title}</TileTitle>
-						</LinkElement>
-						<Year>({crewMember.release_date ? crewMember.release_date.slice(0, 4) : '-'})</Year>
-						<Tags>
-						  {movieGenres.map((genre) => (
-							<Tag key={genre.id}>{genre.name}</Tag>
-						  ))}
-						</Tags>
-						<Rating>
-						  <StarImage src={star} alt=""></StarImage>
-						  <Rate>{crewMember.vote_average || '-'}</Rate>
-						  <Votes> {crewMember.vote_count ? `${crewMember.vote_count} votes` : '-'}</Votes>
-						</Rating>
-					  </TileContent>
-					</StyledTile>
-				  );
-				})}
-			</Movies>
-		  </Container>
+			<Header> Movies - crew ({crewData ? crewData.length : 0})</Header>
+			<Container>
+				<Movies>
+					{crewData &&
+						crewData.map((crewMember) => {
+							const movieGenres = genres.filter((genre) => crewMember.genre_ids.includes(genre.id));
+							return (
+								<StyledTile key={crewMember.id}>
+									<Poster>
+										<LinkElement to={`/movies/${crewMember.id}`}>
+											<ImagePoster
+												$isCustom={crewMember.poster_path ? false : true}
+												src={
+													crewMember.poster_path
+														? `https://image.tmdb.org/t/p/original${crewMember.poster_path}`
+														: customPoster
+												}
+												alt={crewMember.title}
+											></ImagePoster>
+										</LinkElement>
+									</Poster>
+									<TileContent>
+										<LinkElement to={`/movies/${crewMember.id}`}>
+											<TileTitle>{crewMember.title}</TileTitle>
+										</LinkElement>
+										<StyledYear>
+											<Character>
+												{crewMember.job}
+											</Character>
+											({crewMember.release_date ? crewMember.release_date.slice(0, 4) : '-'})
+										</StyledYear>
+										<Tags>
+											{movieGenres.map((genre) => (
+												<Tag key={genre.id}>{genre.name}</Tag>
+											))}
+										</Tags>
+										<Rating>
+											<StarImage src={star} alt=""></StarImage>
+											<Rate>{crewMember.vote_average || '-'}</Rate>
+											<Votes> {crewMember.vote_count ? `${crewMember.vote_count} votes` : '-'}</Votes>
+										</Rating>
+									</TileContent>
+								</StyledTile>
+							);
+						})}
+				</Movies>
+			</Container>
 		</Wrapper>
-	  );
-	};
+	);
+};
 
 export default MovieCrew

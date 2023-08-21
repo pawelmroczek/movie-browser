@@ -67,6 +67,7 @@ export const ImagePoster = styled.img`
 	width: ${({ $isCustom }) => ($isCustom ? '37px' : '114px')};
 	height: ${({ $isCustom }) => ($isCustom ? '27.78px' : '169px')};
 	border-radius: 5px;
+	margin-top: 4px;
 
 	@media (min-width: 768px) {
 		width: ${({ $isCustom }) => ($isCustom ? '45px' : '292px')};
@@ -164,9 +165,12 @@ export const Tags = styled.ul`
     margin: 12px 0 12px 0;
 	padding: 0;
 	max-height: 55px;
+	overflow: hidden;
 
 	@media (min-width: 768px) {
 		font-size: 16px;
+		min-height: 36px;
+		margin: 8px 0 0 0;
 	}
 `
 export const Tag = styled.li`

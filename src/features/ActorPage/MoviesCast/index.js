@@ -37,13 +37,13 @@ const MovieCast = () => {
 	const castData = useCast(actorId);
 
 	if (!castData || castData.length === 0) {
-	    return null;
-	 }
+		return null;
+	}
 
 	return (
 		<Wrapper>
-			<Header> Movies - cast ({castData ? castData.length : 0})</Header>
 			<Container>
+				<Header> Movies - cast ({castData ? castData.length : 0})</Header>
 				<Movies>
 					{castData &&
 						castData.map((castMember) => {

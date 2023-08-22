@@ -30,13 +30,8 @@ const Movie = () => {
   //   }
   // }, [page, dispatch, query]);
 
-
-	
-	
-
 	const { cast, crew } = useCredits(movieId);
 	const status = useSelector(selectStatus);
-	console.log(status);
 	const displayedCast = cast.slice(0, 12);
 	const displayedCrew = crew.slice(0, 6); 
 

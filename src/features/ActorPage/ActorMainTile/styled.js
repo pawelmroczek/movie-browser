@@ -44,6 +44,7 @@ export const ImageContainer = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	border-radius: 5px;
 
 	@media (min-width: 768px) {
 		margin: 0 40px 0px 0;

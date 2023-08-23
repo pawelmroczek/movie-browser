@@ -36,12 +36,12 @@ export const People = () => {
     }
   }, [page, dispatch, query]);
 
-  // useEffect(() => {
-  // 	dispatch(fetchSearchResult(query));
+  useEffect(() => {
+    dispatch(fetchSearchResult(query));
 
-  // 	const url = window.location.href.split('?')[0];
-  // 	window.history.replaceState({}, document.title, url);
-  //   }, [query, dispatch]);
+    const url = window.location.href.split('?')[0];
+    window.history.replaceState({}, document.title, url);
+  }, [query, dispatch]);
 
   const data = useSelector(selectData);
   const status = useSelector(selectStatus);

@@ -1,4 +1,4 @@
-import { LinkElement, Rate, StarImage, StyledTile, TileTitle, Votes, Year } from '../../../common/Tile/styled'
+import { LinkElement, Rate, StarImage, StyledTile, TileTitle, Votes } from '../../../common/Tile/styled'
 import customPoster from '../../../common/images/Video.svg'
 import star from '../../../common/images/Vector.svg'
 import {
@@ -41,7 +41,7 @@ const MovieCast = () => {
 	const castData = useCast(actorId)
 
 	if (!castData || castData.length === 0) {
-		return null;
+		return null
 	}
 
 	return (
@@ -81,6 +81,7 @@ const MovieCast = () => {
 											))}
 										</Tags>
 										<Rating>
+
 											{castMember.vote_count ? (
 												<>
 													<StarImage src={star} alt=""></StarImage>

@@ -40,12 +40,6 @@ const ActorMainTile = () => {
 
 	const posterUrl = profile_path ? `https://image.tmdb.org/t/p/w500/${profile_path}` : customPoster
 
-	const date = new Date('');
-	const formattedDate = date.toLocaleDateString('pl-PL', {
-		day: '2-digit',
-		month: '2-digit',
-		year: 'numeric',
-	});
 	return (
 		<>
 			<TileWrapper>
@@ -56,15 +50,17 @@ const ActorMainTile = () => {
 					<Title>{name}</Title>
 					<DateOfBirth>
 						<Name>Birth:</Name>
-						{birthday ? new Date(birthday).toLocaleDateString('pl-PL', {
-							day: '2-digit',
-							month: '2-digit',
-							year: 'numeric',
-						}) : "-"}
+						{birthday
+							? new Date(birthday).toLocaleDateString('pl-PL', {
+									day: '2-digit',
+									month: '2-digit',
+									year: 'numeric',
+							  })
+							: '-'}
 					</DateOfBirth>
 					<PlaceOfBirth>
 						<Name>Place of birth:</Name>
-						{place_of_birth ? place_of_birth : "-"}
+						{place_of_birth ? place_of_birth : '-'}
 					</PlaceOfBirth>
 					{isWideScreen && <Description>{biography}</Description>}
 				</Details>
@@ -75,4 +71,3 @@ const ActorMainTile = () => {
 }
 
 export default ActorMainTile
-

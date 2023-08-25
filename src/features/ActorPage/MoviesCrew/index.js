@@ -40,7 +40,7 @@ const MovieCrew = () => {
 	}, [])
 
 	if (!crewData || crewData.length === 0) {
-		return null;
+		return null
 	}
 
 	return (

@@ -63,7 +63,11 @@ const MovieTile = () => {
 				</Production>
 				<Production>
 					<Name>Release date:</Name>
-					{release_date}
+					{release_date ? new Date(release_date).toLocaleDateString('pl-PL', {
+							day: '2-digit',
+							month: '2-digit',
+							year: 'numeric',
+						}) : "-"}
 				</Production>
 				<Genres>
 					{genres.map(genre => (

@@ -27,7 +27,7 @@ export const Navigation = () => {
   const location = useLocation();
 
   useEffect(() => {
-    if (location.pathname !== "/movies" &&location.pathname !== "/people") {
+    if (location.pathname !== "/movies" && location.pathname !== "/people") {
       setNewInputValue("");
     }
   }, [location.pathname, setNewInputValue]);
@@ -47,7 +47,15 @@ export const Navigation = () => {
               <StyledNavLink to={toMovies()}>MOVIES</StyledNavLink>
             </StyledLi>
             <StyledLi onClick={resetInputValue}>
-              <StyledNavLink to={toPeople()}>PEOPLE</StyledNavLink>
+              <StyledNavLink
+                to={toPeople()}
+                isActive={(_, location) => {
+                  return location.pathname.startsWith('/people') || location.pathname.startsWith('/person');
+                }}
+              >
+                PEOPLE
+              </StyledNavLink>
+
             </StyledLi>
           </StyledUl>
         </Container>

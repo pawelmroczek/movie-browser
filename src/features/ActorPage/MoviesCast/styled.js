@@ -29,6 +29,7 @@ export const Header = styled.span`
 	@media (min-width: 768px) {
 		font-size: 36px;
 		margin-bottom: 24px;
+		padding-left: 16px;
 	}
 `
 export const LinkElement = styled(Link)`

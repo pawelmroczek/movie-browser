@@ -34,10 +34,14 @@ const MovieCrew = () => {
 		fetchGenres();
 	}, []);
 
+	if (!crewData || crewData.length === 0) {
+		return null;
+	}
+
 	return (
 		<Wrapper>
-			<Header> Movies - crew ({crewData ? crewData.length : 0})</Header>
 			<Container>
+				<Header> Movies - crew ({crewData ? crewData.length : 0})</Header>
 				<Movies>
 					{crewData &&
 						crewData.map((crewMember) => {

@@ -6,6 +6,41 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 [https://pawelmroczek.github.io/movie-browser/](https://pawelmroczek.github.io/movie-browser/)
 
+## Description
+
+This project is a website that showcases information about popular movies. The website features a list of top movies and allows users to navigate to dedicated pages for individual movies and actors.
+
+## Technologies Used
+- React: The project is built using the React library for creating dynamic user interfaces.
+- React Router: React Router is utilized for handling routing within the application, enabling seamless navigation between different pages.
+- Styled Components: Styled Components is employed to manage the styling of the components in a more maintainable and efficient way.
+- Redux Saga: Redux Saga is used for handling asynchronous actions, such as fetching movie data from an API.
+
+## Features
+1. **Homepage with Movie List**: The homepage displays a list of popular movies along with images and brief descriptions.
+
+![image](https://github.com/pawelmroczek/movie-browser/assets/121048154/624b086d-bb83-404f-bcd8-1546f38b7368)
+![image](https://github.com/pawelmroczek/movie-browser/assets/121048154/f24895b3-768f-4097-8ae4-af3cf2936767)
+
+
+2. **Movie Page**: Users can click on a movie to view detailed information, including the cast, genre, and a synopsis.
+
+![image](https://github.com/pawelmroczek/movie-browser/assets/121048154/216cfd00-30ae-4538-8526-768df1fe1f1d)
+![image](https://github.com/pawelmroczek/movie-browser/assets/121048154/a1ad9500-9d75-435b-8046-19d73d8fa8b8)
+
+
+3. **Actor Page**: The project includes actor profiles with images and a list of movies they've appeared in.
+
+![image](https://github.com/pawelmroczek/movie-browser/assets/121048154/b1c9bdad-7da1-4ddc-bfed-53d41c607b30)
+
+## Installation
+To run this project locally, follow these steps:
+
+1. Clone the repository: git clone https://github.com/pawelmroczek/movie-browser.git
+2. Navigate to the project folder: cd project_folder
+3. Install dependencies: npm install
+4. Start the development server: npm start
+
 ## Available Scripts
 
 In the project directory, you can run:

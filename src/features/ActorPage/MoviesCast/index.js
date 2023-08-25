@@ -15,6 +15,8 @@ import { useParams } from 'react-router-dom';
 import useCast from './useCast';
 import { useEffect, useState } from 'react';
 import { getGenres } from '../../../common/Genres/getGenres';
+import { useSelector } from 'react-redux';
+import { selectStatus } from '../../browserSlice';
 
 const MovieCast = () => {
 	const [genres, setGenres] = useState([]);
@@ -35,8 +37,10 @@ const MovieCast = () => {
 	const { id } = useParams();
 	const actorId = id;
 	const castData = useCast(actorId);
+	const status = useSelector(selectStatus);
 
-	if (!castData || castData.length === 0) {
+
+	if (!castData || castData.length === 0 || status === "loading") {
 		return null;
 	}
 

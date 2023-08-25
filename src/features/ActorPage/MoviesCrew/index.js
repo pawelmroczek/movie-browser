@@ -14,6 +14,8 @@ import { useParams } from 'react-router-dom';
 import useCrew from './useCrew';
 import { useEffect, useState } from 'react';
 import { getGenres } from '../../../common/Genres/getGenres';
+import { selectStatus } from '../../browserSlice';
+import { useSelector } from 'react-redux';
 
 const MovieCrew = () => {
 	const [genres, setGenres] = useState([]);
@@ -34,7 +36,9 @@ const MovieCrew = () => {
 		fetchGenres();
 	}, []);
 
-	if (!crewData || crewData.length === 0) {
+	const status = useSelector(selectStatus);
+
+	if (!crewData || crewData.length === 0 || status==="loading") {
 		return null;
 	}
 

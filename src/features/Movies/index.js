@@ -43,12 +43,19 @@ const Movies = () => {
     }
   }, [page, dispatch, query]);
 
-  useEffect(() => {
-    dispatch(fetchSearchResult(query));
+  // useEffect(() => {
+  //   const payload = {
+  //     query: query,
+  //     page: page || 1,
+  //     destination: "movie",
+  //   };
+  //   if(query){
+  //     dispatch(fetchSearchResult(payload));
+  //   }
 
-    const url = window.location.href.split('?')[0];
-    window.history.replaceState({}, document.title, url);
-  }, [query, dispatch]);
+  //   const url = window.location.href.split('?')[0];
+  //   window.history.replaceState({}, document.title, url);
+  // }, [page,query, dispatch]);
 
   switch (status) {
     case "loading":

@@ -125,7 +125,6 @@ export const Genre = styled.span`
 export const RatingWrapper = styled.div`
 	display: flex;
 	gap: 8px;
-	align-items: end;
 `
 
 export const ImageStar = styled.img`

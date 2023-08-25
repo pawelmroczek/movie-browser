@@ -1,40 +1,44 @@
+import { LinkElement, Rate, StarImage, StyledTile, TileTitle, Votes, Year } from '../../../common/Tile/styled'
+import customPoster from '../../../common/images/Video.svg'
+import star from '../../../common/images/Vector.svg'
 import {
-	LinkElement,
-	Rate,
-	StarImage,
-	StyledTile,
-	TileTitle,
-	Votes,
-	Year,
-} from '../../../common/Tile/styled';
-import customPoster from '../../../common/images/Video.svg';
-import star from '../../../common/images/Vector.svg';
-import { Container, Header, Movies, Rating, Tag, Tags, TileContent, Poster, ImagePoster, Character, StyledYear } from './styled';
-import { Wrapper } from '../../Movie/People/styled';
-import { useParams } from 'react-router-dom';
-import useCast from './useCast';
-import { useEffect, useState } from 'react';
-import { getGenres } from '../../../common/Genres/getGenres';
+	Container,
+	Header,
+	Movies,
+	Rating,
+	Tag,
+	Tags,
+	TileContent,
+	Poster,
+	ImagePoster,
+	Character,
+	StyledYear,
+} from './styled'
+import { Wrapper } from '../../Movie/People/styled'
+import { useParams } from 'react-router-dom'
+import useCast from './useCast'
+import { useEffect, useState } from 'react'
+import { getGenres } from '../../../common/Genres/getGenres'
 
 const MovieCast = () => {
-	const [genres, setGenres] = useState([]);
+	const [genres, setGenres] = useState([])
 
 	useEffect(() => {
 		const fetchGenres = async () => {
 			try {
-				const genres = await getGenres();
-				setGenres(genres);
+				const genres = await getGenres()
+				setGenres(genres)
 			} catch (error) {
-				console.error('Error fetching genres:', error);
+				console.error('Error fetching genres:', error)
 			}
-		};
+		}
 
-		fetchGenres();
-	}, []);
+		fetchGenres()
+	}, [])
 
-	const { id } = useParams();
-	const actorId = id;
-	const castData = useCast(actorId);
+	const { id } = useParams()
+	const actorId = id
+	const castData = useCast(actorId)
 
 	if (!castData || castData.length === 0) {
 		return null;
@@ -43,11 +47,11 @@ const MovieCast = () => {
 	return (
 		<Wrapper>
 			<Container>
-				<Header> {castData.length != 0 ? `Movies - cast (${castData.length})` : null}</Header>
+				<Header> {castData.length !== 0 ? `Movies - cast (${castData.length})` : null}</Header>
 				<Movies>
 					{castData &&
-						castData.map((castMember) => {
-							const movieGenres = genres.filter((genre) => castMember.genre_ids.includes(genre.id));
+						castData.map(castMember => {
+							const movieGenres = genres.filter(genre => castMember.genre_ids.includes(genre.id))
 
 							return (
 								<StyledTile key={castMember.id}>
@@ -60,8 +64,7 @@ const MovieCast = () => {
 														? `https://image.tmdb.org/t/p/original${castMember.poster_path}`
 														: customPoster
 												}
-												alt={castMember.title}
-											></ImagePoster>
+												alt={castMember.title}></ImagePoster>
 										</LinkElement>
 									</Poster>
 									<TileContent>
@@ -69,13 +72,11 @@ const MovieCast = () => {
 											<TileTitle>{castMember.title}</TileTitle>
 										</LinkElement>
 										<StyledYear>
-											<Character>
-												{castMember.character}
-											</Character>
-											({castMember.release_date ? castMember.release_date.slice(0, 4) : '-'})
+											<Character>{castMember.character}</Character>(
+											{castMember.release_date ? castMember.release_date.slice(0, 4) : '-'})
 										</StyledYear>
 										<Tags>
-											{movieGenres.map((genre) => (
+											{movieGenres.map(genre => (
 												<Tag key={genre.id}>{genre.name}</Tag>
 											))}
 										</Tags>
@@ -93,13 +94,12 @@ const MovieCast = () => {
 
 									</TileContent>
 								</StyledTile>
-							);
+							)
 						})}
 				</Movies>
 			</Container>
 		</Wrapper>
-	);
-};
+	)
+}
 
-export default MovieCast;
-
+export default MovieCast

@@ -54,6 +54,7 @@ const ActorMainTile = () => {
     year: "numeric",
   });
 
+
   if (status === "success") {
     if (actorData) {
       const { birthday, biography, name, place_of_birth, profile_path } =
@@ -107,3 +108,4 @@ const ActorMainTile = () => {
 };
 
 export default ActorMainTile;
+

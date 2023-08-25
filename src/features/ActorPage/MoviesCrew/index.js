@@ -1,3 +1,6 @@
+import { LinkElement, Rate, StarImage, StyledTile, TileTitle, Votes } from '../../../common/Tile/styled'
+import customPoster from '../../../common/images/Video.svg'
+import star from '../../../common/images/Vector.svg'
 import {
 	LinkElement,
 	Rate,
@@ -17,8 +20,9 @@ import { getGenres } from '../../../common/Genres/getGenres';
 import { selectStatus } from '../../browserSlice';
 import { useSelector } from 'react-redux';
 
+
 const MovieCrew = () => {
-	const [genres, setGenres] = useState([]);
+	const [genres, setGenres] = useState([])
 	const { id } = useParams()
 	const actorId = id
 	const crewData = useCrew(actorId)
@@ -26,15 +30,16 @@ const MovieCrew = () => {
 	useEffect(() => {
 		const fetchGenres = async () => {
 			try {
-				const genres = await getGenres();
-				setGenres(genres);
+				const genres = await getGenres()
+				setGenres(genres)
 			} catch (error) {
-				console.error('Error fetching genres:', error);
+				console.error('Error fetching genres:', error)
 			}
-		};
+		}
 
-		fetchGenres();
-	}, []);
+		fetchGenres()
+	}, [])
+
 
 	const status = useSelector(selectStatus);
 
@@ -45,11 +50,11 @@ const MovieCrew = () => {
 	return (
 		<Wrapper>
 			<Container>
-				<Header> Movies - crew ({crewData ? crewData.length : 0})</Header>
+				<Header> {crewData.length !== 0 ? `Movies - crew (${crewData.length})` : null}</Header>
 				<Movies>
 					{crewData &&
-						crewData.map((crewMember) => {
-							const movieGenres = genres.filter((genre) => crewMember.genre_ids.includes(genre.id));
+						crewData.map(crewMember => {
+							const movieGenres = genres.filter(genre => crewMember.genre_ids.includes(genre.id))
 							return (
 								<StyledTile key={crewMember.id}>
 									<Poster>
@@ -61,8 +66,7 @@ const MovieCrew = () => {
 														? `https://image.tmdb.org/t/p/original${crewMember.poster_path}`
 														: customPoster
 												}
-												alt={crewMember.title}
-											></ImagePoster>
+												alt={crewMember.title}></ImagePoster>
 										</LinkElement>
 									</Poster>
 									<TileContent>
@@ -70,29 +74,27 @@ const MovieCrew = () => {
 											<TileTitle>{crewMember.title}</TileTitle>
 										</LinkElement>
 										<StyledYear>
-											<Character>
-												{crewMember.job}
-											</Character>
-											({crewMember.release_date ? crewMember.release_date.slice(0, 4) : '-'})
+											<Character>{crewMember.job}</Character>(
+											{crewMember.release_date ? crewMember.release_date.slice(0, 4) : '-'})
 										</StyledYear>
 										<Tags>
-											{movieGenres.map((genre) => (
+											{movieGenres.map(genre => (
 												<Tag key={genre.id}>{genre.name}</Tag>
 											))}
 										</Tags>
 										<Rating>
-											<StarImage src={star} alt=""></StarImage>
+											<StarImage src={star} alt=''></StarImage>
 											<Rate>{crewMember.vote_average || '-'}</Rate>
 											<Votes> {crewMember.vote_count ? `${crewMember.vote_count} votes` : '-'}</Votes>
 										</Rating>
 									</TileContent>
 								</StyledTile>
-							);
+							)
 						})}
 				</Movies>
 			</Container>
 		</Wrapper>
-	);
-};
+	)
+}
 
 export default MovieCrew

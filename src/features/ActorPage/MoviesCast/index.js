@@ -43,7 +43,7 @@ const MovieCast = () => {
 	return (
 		<Wrapper>
 			<Container>
-				<Header> Movies - cast ({castData ? castData.length : 0})</Header>
+				<Header> {castData.length != 0 ? `Movies - cast (${castData.length})` : null}</Header>
 				<Movies>
 					{castData &&
 						castData.map((castMember) => {

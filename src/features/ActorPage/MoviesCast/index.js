@@ -1,18 +1,6 @@
 import { LinkElement, Rate, StarImage, StyledTile, TileTitle, Votes } from '../../../common/Tile/styled'
 import customPoster from '../../../common/images/Video.svg'
 import star from '../../../common/images/Vector.svg'
-import {
-
-	LinkElement,
-	Rate,
-	StarImage,
-	StyledTile,
-	TileTitle,
-	Votes,
-	Year,
-} from '../../../common/Tile/styled';
-import customPoster from '../../../common/images/Video.svg';
-import star from '../../../common/images/Vector.svg';
 import { Container, Header, Movies, Rating, Tag, Tags, TileContent, Poster, ImagePoster, Character, StyledYear } from './styled';
 import { Wrapper } from '../../Movie/People/styled';
 import { useParams } from 'react-router-dom';

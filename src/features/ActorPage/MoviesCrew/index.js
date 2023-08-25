@@ -41,7 +41,7 @@ const MovieCrew = () => {
 	return (
 		<Wrapper>
 			<Container>
-				<Header> Movies - crew ({crewData ? crewData.length : 0})</Header>
+				<Header> {crewData.length != 0 ? `Movies - crew (${crewData.length})` : null}</Header>
 				<Movies>
 					{crewData &&
 						crewData.map((crewMember) => {

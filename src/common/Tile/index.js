@@ -19,9 +19,9 @@ import customPoster from '../images/Video.svg'
 import { Genres } from '../Genres'
 
 export const Tile = ({ movie, genres }) => {
-  if (!movie) {
-    return null;
-  }
+	if (!movie) {
+		return null;
+	}
 
 	const posterUrl = movie.poster_path ? `https://image.tmdb.org/t/p/original${movie.poster_path}` : customPoster
 	const releaseYear = movie.release_date ? movie.release_date.substring(0, 4) : ''
@@ -42,9 +42,15 @@ export const Tile = ({ movie, genres }) => {
 					<Genres genre_ids={movie.genre_ids} genres={genres} />
 				</Description>
 				<Rating>
-					<StarImage src={star} alt=''></StarImage>
-					<Rate>{movie.vote_average ? movie.vote_average.toFixed(1) : 0}</Rate>
-					<Votes>{movie.vote_count} votes</Votes>
+					{movie.vote_count ? (
+						<>
+							<StarImage src={star} alt=''></StarImage>
+							<Rate>{movie.vote_average ? movie.vote_average.toFixed(1) : 0}</Rate>
+							<Votes>{movie.vote_count} votes</Votes>
+						</>
+					) : (
+						<Votes>No votes yet</Votes>
+					)}
 				</Rating>
 			</TileContent>
 		</StyledTile>

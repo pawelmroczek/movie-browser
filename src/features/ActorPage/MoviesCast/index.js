@@ -80,10 +80,17 @@ const MovieCast = () => {
 											))}
 										</Tags>
 										<Rating>
-											<StarImage src={star} alt=""></StarImage>
-											<Rate>{castMember.vote_average || '-'}</Rate>
-											<Votes> {castMember.vote_count ? `${castMember.vote_count} votes` : '-'}</Votes>
+											{castMember.vote_count ? (
+												<>
+													<StarImage src={star} alt=""></StarImage>
+													<Rate>{castMember.vote_average.toFixed(1)}</Rate>
+													<Votes>{`${castMember.vote_count} votes`}</Votes>
+												</>
+											) : (
+												<Votes>No votes yet</Votes>
+											)}
 										</Rating>
+
 									</TileContent>
 								</StyledTile>
 							);

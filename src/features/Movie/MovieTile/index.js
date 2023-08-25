@@ -63,7 +63,11 @@ const MovieTile = () => {
 				</Production>
 				<Production>
 					<Name>Release date:</Name>
-					{release_date}
+					{release_date ? new Date(release_date).toLocaleDateString('pl-PL', {
+						day: '2-digit',
+						month: '2-digit',
+						year: 'numeric',
+					}) : "-"}
 				</Production>
 				<Genres>
 					{genres.map(genre => (
@@ -71,14 +75,19 @@ const MovieTile = () => {
 					))}
 				</Genres>
 				<RatingWrapper>
-					<ImageStar src={star} alt='star' />
-					<RatingValue>
-						{vote_average === 0 ? 0 : vote_average.toFixed(1)}
-						<TotalValue>
-							/10 <span>{vote_count} votes</span>
-						</TotalValue>
-					</RatingValue>
-					<VotesQty></VotesQty>
+					{vote_count > 0 ? (
+						<>
+							<ImageStar src={star} alt='star' />
+							<RatingValue>
+								{vote_average === 0 ? 0 : vote_average.toFixed(1)}
+								<TotalValue>
+									/10 <span>{vote_count} votes</span>
+								</TotalValue>
+							</RatingValue>
+						</>
+					) : (
+						<VotesQty>No votes yet</VotesQty>
+					)}
 				</RatingWrapper>
 				{isWideScreen && <Description>{overview}</Description>}
 			</Details>

@@ -23,13 +23,13 @@ import { useParams } from 'react-router-dom'
 import customPoster from '../../../common/images/Video.svg'
 
 const MovieTile = () => {
-	const [isWideScreen, setIsWideScreen] = useState(window.innerWidth > 768)
+	const [isWideScreen, setIsWideScreen] = useState(window.innerWidth > 767)
 	const { id } = useParams()
 	const movieId = id
 
 	useEffect(() => {
 		const handleResize = () => {
-			setIsWideScreen(window.innerWidth > 768)
+			setIsWideScreen(window.innerWidth > 767)
 		}
 
 		window.addEventListener('resize', handleResize)

@@ -112,7 +112,9 @@ export const StyledYear = styled.div`
 	font-weight: 400;
     padding-top: 4px;
 	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
+	line-height: 24px;
 
 	@media (min-width: 768px) {
 		font-size: 16px;
@@ -125,6 +127,9 @@ export const Character = styled.div`
 	@media (min-width: 768px) {
 		margin-right: 4px;
 		display: inline;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 `
 

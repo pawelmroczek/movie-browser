@@ -22,7 +22,7 @@ const MovieBanner = () => {
 	const movieData = useMovie(movieId)
 
 	if (!movieData) {
-		return <div>Loading...</div>
+		return null
 	}
 
 	const { backdrop_path, original_title, vote_average, vote_count } = movieData

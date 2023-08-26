@@ -32,7 +32,6 @@ export const ImageContainer = styled.div`
 		width: 312px;
     	height: 464px;
 	}
-
 	
 `
 
@@ -61,7 +60,6 @@ export const Name = styled.span`
 	@media (min-width: 768px) {
 		display: block;
 		color: #74788b;
-		width: 125px;
 	}
 `
 
@@ -85,19 +83,28 @@ export const Details = styled.div`
 
 	@media (min-width: 768px) {
 		max-width: unset;
+		gap: 8px;
 	}
 `
 
 export const Production = styled.div`
 	display: flex;
 	font-size: 12px;
-	gap: 10px;
 	margin: 0 0 4px;
+	flex-flow: wrap;
+	gap: 10px;
+
+	@media (max-width: 767px) {
+		flex-flow: row wrap;
+		justify-content: flex-start;
+		gap: 0;
+	}
 
 	@media (min-width: 768px) {
 		font-size: 18px;
 	}
 `
+
 
 export const Genres = styled.div`
 	display: flex;

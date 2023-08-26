@@ -10,7 +10,7 @@ import { usePrevious } from "../usePrevious";
 
 const usePagination = () => {
   const data = useSelector(selectData);
-  const totalPages = data.total_pages;
+  const totalPages = data.total_pages>500 ? 500 : data.total_pages;
   const pageFromParam = parseInt(useQueryParameter(paginationParamName));
 
   const [page, setNewPage] = useState(pageFromParam || 1);

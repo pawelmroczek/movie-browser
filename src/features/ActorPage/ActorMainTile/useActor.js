@@ -1,9 +1,14 @@
 import { useState, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { setStatus } from '../../browserSlice'
 
 const useActor = actorId => {
 	const [actorData, setActorData] = useState(null)
+	
+	const dispatch = useDispatch()
 
 	useEffect(() => {
+		dispatch(setStatus("loading"));
 		const options = {
 			method: 'GET',
 			headers: {
@@ -17,9 +22,10 @@ const useActor = actorId => {
 			.then(response => response.json())
 			.then(response => {
 				setActorData(response)
+				dispatch(setStatus("success"));
 			})
 			.catch(err => console.error(err))
-	}, [actorId])
+	}, [actorId, dispatch])
 
 	return actorData
 }

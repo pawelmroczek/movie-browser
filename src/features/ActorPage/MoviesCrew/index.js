@@ -1,24 +1,15 @@
 import { LinkElement, Rate, StarImage, StyledTile, TileTitle, Votes } from '../../../common/Tile/styled'
 import customPoster from '../../../common/images/Video.svg'
 import star from '../../../common/images/Vector.svg'
-import {
-	Container,
-	Header,
-	Movies,
-	Rating,
-	Tag,
-	Tags,
-	TileContent,
-	Poster,
-	ImagePoster,
-	StyledYear,
-	Character,
-} from './styled'
-import { Wrapper } from '../../Movie/People/styled'
-import { useParams } from 'react-router-dom'
-import useCrew from './useCrew'
-import { useEffect, useState } from 'react'
-import { getGenres } from '../../../common/Genres/getGenres'
+import { Container, Header, Movies, Rating, Tag, Tags, TileContent, Poster, ImagePoster, StyledYear, Character } from './styled'
+import { Wrapper } from '../../Movie/People/styled';
+import { useParams } from 'react-router-dom';
+import useCrew from './useCrew';
+import { useEffect, useState } from 'react';
+import { getGenres } from '../../../common/Genres/getGenres';
+import { selectStatus } from '../../browserSlice';
+import { useSelector } from 'react-redux';
+
 
 const MovieCrew = () => {
 	const [genres, setGenres] = useState([])
@@ -39,8 +30,11 @@ const MovieCrew = () => {
 		fetchGenres()
 	}, [])
 
-	if (!crewData || crewData.length === 0) {
-		return null
+
+	const status = useSelector(selectStatus);
+
+	if (!crewData || crewData.length === 0 || status==="loading") {
+		return null;
 	}
 
 	return (

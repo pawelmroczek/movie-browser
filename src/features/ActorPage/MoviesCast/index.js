@@ -1,24 +1,15 @@
 import { LinkElement, Rate, StarImage, StyledTile, TileTitle, Votes } from '../../../common/Tile/styled'
 import customPoster from '../../../common/images/Video.svg'
 import star from '../../../common/images/Vector.svg'
-import {
-	Container,
-	Header,
-	Movies,
-	Rating,
-	Tag,
-	Tags,
-	TileContent,
-	Poster,
-	ImagePoster,
-	Character,
-	StyledYear,
-} from './styled'
-import { Wrapper } from '../../Movie/People/styled'
-import { useParams } from 'react-router-dom'
-import useCast from './useCast'
-import { useEffect, useState } from 'react'
-import { getGenres } from '../../../common/Genres/getGenres'
+import { Container, Header, Movies, Rating, Tag, Tags, TileContent, Poster, ImagePoster, Character, StyledYear } from './styled';
+import { Wrapper } from '../../Movie/People/styled';
+import { useParams } from 'react-router-dom';
+import useCast from './useCast';
+import { useEffect, useState } from 'react';
+import { getGenres } from '../../../common/Genres/getGenres';
+import { useSelector } from 'react-redux';
+import { selectStatus } from '../../browserSlice';
+
 
 const MovieCast = () => {
 	const [genres, setGenres] = useState([])
@@ -36,12 +27,16 @@ const MovieCast = () => {
 		fetchGenres()
 	}, [])
 
-	const { id } = useParams()
-	const actorId = id
-	const castData = useCast(actorId)
 
-	if (!castData || castData.length === 0) {
-		return null
+	const { id } = useParams();
+	const actorId = id;
+	const castData = useCast(actorId);
+	const status = useSelector(selectStatus);
+
+
+	if (!castData || castData.length === 0 || status === "loading") {
+		return null;
+
 	}
 
 	return (

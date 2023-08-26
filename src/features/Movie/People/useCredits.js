@@ -34,9 +34,9 @@ const useCredits = (movieId) => {
                 }
                 dispatch(setStatus("success"));
             })
-            .catch(err => console.error(err));
+           
     }, [movieId]);
-
+    
     return { cast, crew };
 };
 

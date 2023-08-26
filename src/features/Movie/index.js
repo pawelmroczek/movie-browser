@@ -20,6 +20,12 @@ const Movie = () => {
 	const displayedCast = cast.slice(0, 12);
 	const displayedCrew = crew.slice(0, 6);
 
+	if(status!=="loading" && (!cast.length || !crew.length)){
+		return <Container>
+				<Error />
+			</Container>
+	}
+
 	switch (status) {
 		case 'loading':
 			return (
@@ -27,10 +33,6 @@ const Movie = () => {
 					<Loader />
 				</Container>
 			)
-		case 'error':
-			return <Container>
-				<Error />
-			</Container>
 		case 'success':
 			return (
 				<>

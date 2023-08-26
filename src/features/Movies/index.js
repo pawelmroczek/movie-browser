@@ -36,12 +36,6 @@ const Movies = () => {
 		}
 	}, [page, dispatch, query])
 
-	useEffect(() => {
-		dispatch(fetchSearchResult(query))
-
-		const url = window.location.href.split('?')[0]
-		window.history.replaceState({}, document.title, url)
-	}, [query, dispatch])
 
 	switch (status) {
 		case 'loading':

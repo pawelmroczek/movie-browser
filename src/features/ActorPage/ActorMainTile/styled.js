@@ -107,6 +107,7 @@ export const Details = styled.div`
 
 	@media (min-width: 768px) {
 		max-width: unset;
+	}
 	
 	@media (min-width: 768px) {
 		max-width: unset;

@@ -20,6 +20,7 @@ import {
 import star from '../../../common/images/Vector.svg'
 import useMovie from './useMovie'
 import { useParams } from 'react-router-dom'
+import customPoster from '../../../common/images/Video.svg'
 
 const MovieTile = () => {
 	const [isWideScreen, setIsWideScreen] = useState(window.innerWidth > 768)
@@ -41,25 +42,25 @@ const MovieTile = () => {
 	const movieData = useMovie(movieId)
 
 	if (!movieData) {
-		return <div>Loading...</div>
+		return null
 	}
 
 	const { title, overview, release_date, vote_average, vote_count, poster_path, genres, production_countries } =
 		movieData
 
-	const posterUrl = `https://image.tmdb.org/t/p/original${poster_path}`
+	const posterUrl = poster_path ? `https://image.tmdb.org/t/p/original${poster_path}` : customPoster
 
 	return (
 		<TileWrapper>
 			<ImageContainer>
-				<Image src={posterUrl} alt='movie' />
+				<Image src={posterUrl} alt={title} $isCustom={posterUrl === customPoster} />
 			</ImageContainer>
 			<Details>
 				<Title>{title}</Title>
 				<Year>{release_date ? release_date.substring(0, 4) : ''}</Year>
 				<Production>
 					<Name>Production:</Name>
-					{production_countries.map(country => country.name).join(', ')}
+					{production_countries.length > 0 ? production_countries.map(country => country.name).join(', ') : "-"}
 				</Production>
 				<Production>
 					<Name>Release date:</Name>

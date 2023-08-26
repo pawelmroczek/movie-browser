@@ -18,25 +18,28 @@ export const TileWrapper = styled.div`
 `
 
 export const ImageContainer = styled.div`
+	background: ${({ theme }) => theme.color.silver};
 	margin: 0 16px 0 0;
-
-	@media (min-width: 768px) {
-		margin: 0 40px 0 0;
-	}
-`
-
-export const Image = styled.img`
-	max-width: 114px;
+	width: 114px;
+    height: 169px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	border-radius: 5px;
 
 	@media (min-width: 768px) {
-		max-width: 312px;
-		max-height: 464px;
+		margin: 0 40px 0 0;
+		width: 312px;
+    	height: 464px;
 	}
 
-	@media (min-width: 992px) {
-		max-width: unset;
-	}
+	
+`
+
+export const Image = styled.img`
+	width: ${({ $isCustom }) => ($isCustom ? '45.45px' : '100%')};
+	height: ${({ $isCustom }) => ($isCustom ? '57.67px' : '100%')};
+	border-radius: 5px;
 `
 
 export const Title = styled.span`

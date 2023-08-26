@@ -6,7 +6,6 @@ export const LinkElement = styled(Link)`
 	color: ${({ theme }) => theme.color.black};
 `
 
-
 export const PersonContent = styled.div`
 	display: grid;
 	justify-content: center;
@@ -64,7 +63,6 @@ export const PersonTitle = styled.header`
 	font-weight: 500;
 	font-size: 14px;
 	text-align: center;
-	display: flex;
 	flex-grow: 1;
 	padding-top: 8px;
 

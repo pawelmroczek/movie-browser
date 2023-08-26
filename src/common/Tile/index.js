@@ -1,7 +1,6 @@
-import React from "react";
+import React from 'react'
 import {
 	LinkElement,
-	LinkImage,
 	StyledTile,
 	Rating,
 	TileContent,
@@ -20,7 +19,7 @@ import { Genres } from '../Genres'
 
 export const Tile = ({ movie, genres }) => {
 	if (!movie) {
-		return null;
+		return null
 	}
 
 	const posterUrl = movie.poster_path ? `https://image.tmdb.org/t/p/original${movie.poster_path}` : customPoster
@@ -29,9 +28,9 @@ export const Tile = ({ movie, genres }) => {
 	return (
 		<StyledTile>
 			<LinkElement to={`/movies/${movie.id}`}>
-			<Poster>
+				<Poster>
 					<ImagePoster src={posterUrl} alt='' $isCustom={posterUrl === customPoster}></ImagePoster>
-			</Poster>
+				</Poster>
 			</LinkElement>
 			<TileContent>
 				<Description>

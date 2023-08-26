@@ -28,11 +28,11 @@ export const Tile = ({ movie, genres }) => {
 
 	return (
 		<StyledTile>
+			<LinkElement to={`/movies/${movie.id}`}>
 			<Poster>
-				<LinkImage to={`/movies/${movie.id}`}>
 					<ImagePoster src={posterUrl} alt='' $isCustom={posterUrl === customPoster}></ImagePoster>
-				</LinkImage>
 			</Poster>
+			</LinkElement>
 			<TileContent>
 				<Description>
 					<LinkElement to={`/movies/${movie.id}`}>

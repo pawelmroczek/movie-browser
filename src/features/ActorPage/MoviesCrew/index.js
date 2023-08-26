@@ -1,15 +1,26 @@
 import { LinkElement, Rate, StarImage, StyledTile, TileTitle, Votes } from '../../../common/Tile/styled'
 import customPoster from '../../../common/images/Video.svg'
 import star from '../../../common/images/Vector.svg'
-import { Container, Header, Movies, Rating, Tag, Tags, TileContent, Poster, ImagePoster, StyledYear, Character } from './styled'
-import { Wrapper } from '../../Movie/People/styled';
-import { useParams } from 'react-router-dom';
-import useCrew from './useCrew';
-import { useEffect, useState } from 'react';
-import { getGenres } from '../../../common/Genres/getGenres';
-import { selectStatus } from '../../browserSlice';
-import { useSelector } from 'react-redux';
-
+import {
+	Container,
+	Header,
+	Movies,
+	Rating,
+	Tag,
+	Tags,
+	TileContent,
+	Poster,
+	ImagePoster,
+	StyledYear,
+	Character,
+} from './styled'
+import { Wrapper } from '../../Movie/People/styled'
+import { useParams } from 'react-router-dom'
+import useCrew from './useCrew'
+import { useEffect, useState } from 'react'
+import { getGenres } from '../../../common/Genres/getGenres'
+import { selectStatus } from '../../browserSlice'
+import { useSelector } from 'react-redux'
 
 const MovieCrew = () => {
 	const [genres, setGenres] = useState([])
@@ -30,11 +41,10 @@ const MovieCrew = () => {
 		fetchGenres()
 	}, [])
 
+	const status = useSelector(selectStatus)
 
-	const status = useSelector(selectStatus);
-
-	if (!crewData || crewData.length === 0 || status==="loading") {
-		return null;
+	if (!crewData || crewData.length === 0 || status === 'loading') {
+		return null
 	}
 
 	return (
@@ -73,9 +83,15 @@ const MovieCrew = () => {
 											))}
 										</Tags>
 										<Rating>
-											<StarImage src={star} alt=''></StarImage>
-											<Rate>{crewMember.vote_average || '-'}</Rate>
-											<Votes> {crewMember.vote_count ? `${crewMember.vote_count} votes` : '-'}</Votes>
+											{crewMember.vote_count ? (
+												<>
+													<StarImage src={star} alt=''></StarImage>
+													<Rate>{crewMember.vote_average.toFixed(1)}</Rate>
+													<Votes>{`${crewMember.vote_count} votes`}</Votes>
+												</>
+											) : (
+												<Votes>No votes yet</Votes>
+											)}
 										</Rating>
 									</TileContent>
 								</StyledTile>
